@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlex - Simplify Learning. Master Software.</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4cc9f0;
+            --warning-color: #f8961e;
+            --danger-color: #ef233c;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f7ff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .welcome-text {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .typing-text {
+            font-size: 1.2rem;
+            min-height: 60px;
+            margin-bottom: 30px;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            animation: bgMove 30s linear infinite;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 1000px; }
+        }
+
+        /* Subjects Section */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .subject-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .subject-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Archives Section */
+        .archives-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+        }
+
+        .subject-archive {
+            margin-bottom: 40px;
+        }
+
+        .archive-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .archive-title::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .archive-title.active::before {
+            transform: rotate(90deg);
+        }
+
+        .archive-content {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .archive-content.active {
+            display: block;
+        }
+
+        .exam-type {
+            margin-bottom: 30px;
+        }
+
+        .exam-type-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .class-item {
+            margin-bottom: 20px;
+        }
+
+        .class-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .topic-title {
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .pdf-link {
+            display: inline-block;
+            margin: 5px 0 10px;
+            color: var(--danger-color);
+            font-weight: 500;
+        }
+
+        .questions-list {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .questions-list li {
+            margin-bottom: 5px;
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Previous Papers Section */
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .paper-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .batch-name {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .exam-links {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .exam-link {
+            text-align: center;
+        }
+
+        .exam-link a {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .exam-link a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Countdown Section */
+        .countdown-container {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .countdown-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            min-width: 100px;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CG Calculator Section */
+        .calculator-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .calculator-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+        }
+
+        .calculator-result {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+        }
+
+        .result-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-note {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .countdown-item {
+                min-width: 60px;
+                padding: 10px;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="container header-content">
+            <h1 class="logo">EduPlex</h1>
+            <p class="tagline">Simplify Learning. Master Software.</p>
+            <p class="welcome-text">
+                EduPlex is your comprehensive learning platform designed specifically for Software Engineering students. 
+                Access course materials, previous papers, and useful tools to excel in your academic journey.
+            </p>
+            <div class="typing-text" id="typing-text"></div>
+            <a href="#subjects" class="btn">Explore Subjects</a>
+        </div>
+    </header>
+
+    <!-- Subjects Section -->
+    <section id="subjects">
+        <div class="container">
+            <h2 class="section-title">Our Subjects</h2>
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">📊</div>
+                    <h3 class="subject-title">Introduction to Software</h3>
+                    <p class="subject-desc">Learn the fundamentals of software development and programming concepts.</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">💻</div>
+                    <h3 class="subject-title">Computer Fundamentals</h3>
+                    <p class="subject-desc">Understand computer architecture, operating systems, and basic networking.</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">🔧</div>
+                    <h3 class="subject-title">Computer Fundamental Lab</h3>
+                    <p class="subject-desc">Hands-on practice with hardware components and system software.</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">🌍</div>
+                    <h3 class="subject-title">Bangladesh Studies</h3>
+                    <p class="subject-desc">Explore the history, culture, and socio-economic aspects of Bangladesh.</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">📖</div>
+                    <h3 class="subject-title">English</h3>
+                    <p class="subject-desc">Develop communication skills and technical writing for software engineers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archives Section -->
+    <section id="archives">
+        <div class="container">
+            <h2 class="section-title">Lesson Archives</h2>
+            <div class="archives-container">
+                <div class="subject-archive">
+                    <h3 class="archive-title">Introduction to Software</h3>
+                    <div class="archive-content">
+                        <div class="exam-type">
+                            <h4 class="exam-type-title">Mid Exam Topics</h4>
+                            <div class="class-item">
+                                <h5 class="class-name">Class 1: Software Basics</h5>
+                                <p class="topic-title">Understanding Software and Hardware</p>
+                                <a href="#" class="pdf-link">Download PDF Notes</a>
+                                <ul class="questions-list">
+                                    <li>Define software and its types</li>
+                                    <li>Difference between system and application software</li>
+                                    <li>Explain software development lifecycle</li>
+                                    <li>What are programming paradigms?</li>
+                                </ul>
+                            </div>
+                            <div class="class-item">
+                                <h5 class="class-name">Class 2: Programming Concepts</h5>
+                                <p class="topic-title">Algorithms and Flowcharts</p>
+                                <a href="#" class="pdf-link">Download PDF Notes</a>
+                                <ul class="questions-list">
+                                    <li>What is an algorithm? Give examples</li>
+                                    <li>Draw flowchart for decision making</li>
+                                    <li>Explain time complexity</li>
+                                    <li>Compare iterative and recursive approaches</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="exam-type">
+                            <h4 class="exam-type-title">Final Exam Topics</h4>
+                            <div class="class-item">
+                                <h5 class="class-name">Class 5: OOP Concepts</h5>
+                                <p class="topic-title">Object Oriented Programming</p>
+                                <a href="#" class="pdf-link">Download PDF Notes</a>
+                                <ul class="questions-list">
+                                    <li>Four pillars of OOP with examples</li>
+                                    <li>Difference between class and object</li>
+                                    <li>Explain polymorphism in detail</li>
+                                    <li>Advantages of encapsulation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subject-archive">
+                    <h3 class="archive-title">Computer Fundamentals</h3>
+                    <div class="archive-content">
+                        <div class="exam-type">
+                            <h4 class="exam-type-title">Mid Exam Topics</h4>
+                            <div class="class-item">
+                                <h5 class="class-name">Class 1: Computer Architecture</h5>
+                                <p class="topic-title">Basic Components of Computer</p>
+                                <a href="#" class="pdf-link">Download PDF Notes</a>
+                                <ul class="questions-list">
+                                    <li>Explain Von Neumann architecture</li>
+                                    <li>Functions of ALU and control unit</li>
+                                    <li>Different types of memory</li>
+                                    <li>What is cache memory?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="view-more">
+                    <a href="#" class="btn btn-outline">View All Archives</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Previous Papers Section -->
+    <section id="papers">
+        <div class="container">
+            <h2 class="section-title">Previous Year Question Papers</h2>
+            <div class="papers-grid">
+                <div class="paper-card">
+                    <h3 class="batch-name">Batch-43</h3>
+                    <div class="exam-links">
+                        <div class="exam-link">
+                            <a href="#">MID</a>
+                        </div>
+                        <div class="exam-link">
+                            <a href="#">Final</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="paper-card">
+                    <h3 class="batch-name">Batch-44</h3>
+                    <div class="exam-links">
+                        <div class="exam-link">
+                            <a href="#">MID</a>
+                        </div>
+                        <div class="exam-link">
+                            <a href="#">Final</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="paper-card">
+                    <h3 class="batch-name">Batch-45</h3>
+                    <div class="exam-links">
+                        <div class="exam-link">
+                            <a href="#">MID</a>
+                        </div>
+                        <div class="exam-link">
+                            <a href="#">Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown">
+        <div class="container">
+            <h2 class="section-title">Exam Countdown</h2>
+            <div class="countdown-container">
+                <h3 class="countdown-title">Final Exam Countdown</h3>
+                <p class="countdown-subtitle">Prepare like a Pro. Your exam begins in...</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CG Calculator Section -->
+    <section id="calculator">
+        <div class="container">
+            <h2 class="section-title">CGPA Calculator</h2>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="target-cg">Target CGPA (%)</label>
+                        <input type="number" id="target-cg" min="0" max="100" placeholder="Enter your target CGPA">
+                    </div>
+                    <div class="form-group">
+                        <label for="mid-marks">Midterm Marks (25%)</label>
+                        <input type="number" id="mid-marks" min="0" max="25" placeholder="Enter mid marks">
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">Attendance (7%)</label>
+                        <input type="number" id="attendance" min="0" max="7" placeholder="Enter attendance">
+                    </div>
+                    <div class="form-group">
+                        <label for="ct-marks">CT Marks (15%)</label>
+                        <input type="number" id="ct-marks" min="0" max="15" placeholder="Enter CT marks">
+                    </div>
+                    <div class="form-group">
+                        <label for="presentation">Presentation (8%)</label>
+                        <input type="number" id="presentation" min="0" max="8" placeholder="Enter presentation marks">
+                    </div>
+                    <div class="form-group">
+                        <label for="assignment">Assignment (5%)</label>
+                        <input type="number" id="assignment" min="0" max="5" placeholder="Enter assignment marks">
+                    </div>
+                    <div class="form-group">
+                        <label for="final-marks">Final Exam (40%)</label>
+                        <input type="number" id="final-marks" min="0" max="40" placeholder="Enter final exam marks">
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <button class="btn" id="calculate-btn">Calculate</button>
+                    </div>
+                </div>
+                <div class="calculator-result" id="result">
+                    <h3 class="result-title">Your Result</h3>
+                    <div class="result-item">
+                        <div class="result-label">Current Total Marks</div>
+                        <div class="result-value" id="current-total">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Target Total Marks</div>
+                        <div class="result-value" id="target-total">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Required Final Exam Marks</div>
+                        <div class="result-value" id="required-final">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Analysis</div>
+                        <div class="result-value" id="analysis">Enter your details to see analysis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-note">A Project of UNLEFT</p>
+            <p class="copyright">© 2023 EduPlex. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Animation
+        const typingText = document.getElementById('typing-text');
+        const messages = [
+            "Access comprehensive course materials...",
+            "Prepare with previous year questions...",
+            "Track your exam countdown...",
+            "Calculate your target CGPA...",
+            "All in one place for Software Engineering students!"
+        ];
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function type() {
+            const currentMessage = messages[messageIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentMessage.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typingText.textContent = currentMessage.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentMessage.length) {
+                isDeleting = true;
+                typingSpeed = 1500; // Pause at end of sentence
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                messageIndex = (messageIndex + 1) % messages.length;
+                typingSpeed = 500; // Pause before typing next message
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+
+        // Start typing animation
+        setTimeout(type, 1000);
+
+        // Archive Toggle
+        const archiveTitles = document.querySelectorAll('.archive-title');
+        archiveTitles.forEach(title => {
+            title.addEventListener('click', () => {
+                title.classList.toggle('active');
+                title.nextElementSibling.classList.toggle('active');
+            });
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const examDate = new Date('December 15, 2025 09:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = examDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // CGPA Calculator
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const targetCG = parseFloat(document.getElementById('target-cg').value) || 0;
+            const midMarks = parseFloat(document.getElementById('mid-marks').value) || 0;
+            const attendance = parseFloat(document.getElementById('attendance').value) || 0;
+            const ctMarks = parseFloat(document.getElementById('ct-marks').value) || 0;
+            const presentation = parseFloat(document.getElementById('presentation').value) || 0;
+            const assignment = parseFloat(document.getElementById('assignment').value) || 0;
+            const finalMarks = parseFloat(document.getElementById('final-marks').value) || 0;
+
+            const currentTotal = midMarks + attendance + ctMarks + presentation + assignment + finalMarks;
+            const targetTotal = targetCG;
+            
+            let requiredFinal = 0;
+            if (finalMarks === 0) {
+                requiredFinal = Math.max(0, targetTotal - (midMarks + attendance + ctMarks + presentation + assignment));
+                requiredFinal = Math.min(40, requiredFinal);
+            }
+
+            document.getElementById('current-total').textContent = currentTotal.toFixed(2);
+            document.getElementById('target-total').textContent = targetTotal.toFixed(2);
+            
+            if (finalMarks === 0) {
+                document.getElementById('required-final').textContent = requiredFinal.toFixed(2) + " / 40";
+            } else {
+                document.getElementById('required-final').textContent = "Already entered";
+            }
+
+            // Analysis
+            let analysis = "";
+            if (currentTotal >= targetTotal) {
+                analysis = `🎉 You've already achieved your target! Current: ${currentTotal.toFixed(2)}% vs Target: ${targetTotal.toFixed(2)}%`;
+            } else if (finalMarks > 0) {
+                const needed = targetTotal - currentTotal;
+                analysis = `You need ${Math.max(0, needed).toFixed(2)}% more to reach your target.`;
+            } else {
+                analysis = `To achieve ${targetTotal.toFixed(2)}%, you need ${requiredFinal.toFixed(2)}/40 in the final exam.`;
+                
+                if (requiredFinal > 35) {
+                    analysis += " This will be challenging! Focus on your preparation.";
+                } else if (requiredFinal > 30) {
+                    analysis += " You'll need strong performance in finals.";
+                } else if (requiredFinal > 20) {
+                    analysis += " With good preparation, this is achievable.";
+                } else {
+                    analysis += " This target is comfortably within reach.";
+                }
+            }
+            
+            document.getElementById('analysis').innerHTML = analysis;
+        });
+    </script>
+</body>
+  </html>
