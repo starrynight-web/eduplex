@@ -4,294 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduPlex - Simplify Learning. Master Software.</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/eduplex_test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="nav-logo">
-                <a href="#home">EduPlex</a>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#countdown" class="nav-link">Countdown</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#subjects" class="nav-link">Subjects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#papers" class="nav-link">Papers</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#calculator" class="nav-link">Calculator</a>
-                </li>
-            </ul>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+            <div class="nav-logo">
+                <a href="#home">EduPlex</a>
+            </div>
+            <div class="nav-icons">
+                <i class="fas fa-bell"></i>
+            </div>
         </div>
     </nav>
 
-    <!-- Header Section -->
+    <!-- Header Section with Countdown -->
     <header>
         <div class="header-bg"></div>
         <div class="container header-content">
-            <h1 class="logo">EduPlex</h1>
-            <p class="tagline">Simplify Learning. Master Software.</p>
-            <p class="welcome-text">
-                EduPlex is your comprehensive learning platform designed specifically for Software Engineering students. 
-                Access course materials, previous papers, and useful tools to excel in your academic journey.
-            </p>
-            <div class="typing-text" id="typing-text"></div>
-            <a href="#subjects" class="btn">Explore Subjects</a>
+            <div class="hero-left">
+                <h1 class="logo">EduPlex</h1>
+                <p class="tagline">Simplify Learning. Master Your Courses.</p>
+                <p class="welcome-text">
+                    EduPlex is your comprehensive learning platform designed specifically for the 45th batch of Software Engineering students of Daffodil International University. 
+                    Access course materials, previous papers, and useful tools to excel in your academic journey.
+                </p>
+                <div class="typing-text" id="typing-text"></div>
+                <div class="batch-dropdown">
+                    <label for="batch-select">Choose your batch</label>
+                    <select id="batch-select" class="batch-select">
+                        <option value="">Select Batch</option>
+                        <option value="45">Batch - 45</option>
+                    </select>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="countdown-container">
+                    <h3 class="countdown-title">Final Exam Countdown</h3>
+                    <p class="countdown-subtitle">Prepare like a Pro. Your exam begins in...</p>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
-    I <!-- Countdown Section -->
-    <section id="countdown">
-        <div class="container">
-            <h2 class="section-title">Exam Countdown</h2>
-            <div class="countdown-container">
-                <h3 class="countdown-title">Final Exam Countdown</h3>
-                <p class="countdown-subtitle">Prepare like a Pro. Your exam begins in...</p>
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">Days</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">Hours</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">Minutes</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">Seconds</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Merged Subjects & Archives Section -->
-    <section id="subjects">
-        <div class="container">
-            <h2 class="section-title">Subjects & Archives</h2>
-            
-            <!-- Introduction to Software -->
-            <div class="subject-archive-container">
-                <div class="subject-header">
-                    <h3 class="subject-title">Introduction to Software</h3>
-                </div>
-                <div class="archive-content active">
-                    <div class="exam-type">
-                        <h4 class="exam-type-title">Mid Exam Topics</h4>
-                        <div class="class-item">
-                            <h5 class="class-name">Class 1: Software Basics</h5>
-                            <p class="topic-title">Understanding Software and Hardware</p>
-                            <a href="https://drive.google.com/file/d/1C5wlZzxTAgExIBwTyCdsah424BEd9dUt/view?usp=sharing" target="_blank" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>Define software and its types</li>
-                                <li>Difference between system and application software</li>
-                                <li>Explain software development lifecycle</li>
-                                <li>What are programming paradigms?</li>
-                            </ul>
-                        </div>
-                        <div class="class-item">
-                            <h5 class="class-name">Class 2: Programming Concepts</h5>
-                            <p class="topic-title">Algorithms and Flowcharts</p>
-                            <a href="#" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>What is an algorithm? Give examples</li>
-                                <li>Draw flowchart for decision making</li>
-                                <li>Explain time complexity</li>
-                                <li>Compare iterative and recursive approaches</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="exam-type">
-                        <h4 class="exam-type-title">Final Exam Topics</h4>
-                        <div class="class-item">
-                            <h5 class="class-name">Class 5: OOP Concepts</h5>
-                            <p class="topic-title">Object Oriented Programming</p>
-                            <a href="#" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>Four pillars of OOP with examples</li>
-                                <li>Difference between class and object</li>
-                                <li>Explain polymorphism in detail</li>
-                                <li>Advantages of encapsulation</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="view-more-btn">
-                        <a href="https://drive.google.com/drive/folders/1i2YDsQyfL7j-dqXbT_F6e3QjLfFeQ-dz?usp=sharing" target="_blank" class="btn btn-outline">View More</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Computer Fundamentals -->
-            <div class="subject-archive-container">
-                <div class="subject-header">
-                    <h3 class="subject-title">Computer Fundamentals</h3>
-                </div>
-                <div class="archive-content">
-                    <div class="exam-type">
-                        <h4 class="exam-type-title">Mid Exam Topics</h4>
-                        <div class="class-item">
-                            <h5 class="class-name">Class 1: Computer Architecture</h5>
-                            <p class="topic-title">Basic Components of Computer</p>
-                            <a href="#" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>Explain Von Neumann architecture</li>
-                                <li>Functions of ALU and control unit</li>
-                                <li>Different types of memory</li>
-                                <li>What is cache memory?</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="exam-type">
-                        <h4 class="exam-type-title">Final Exam Topics</h4>
-                        <div class="class-item">
-                            <h5 class="class-name">Class 4: Operating Systems</h5>
-                            <p class="topic-title">OS Functions and Types</p>
-                            <a href="#" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>Functions of an operating system</li>
-                                <li>Compare different types of OS</li>
-                                <li>Explain process scheduling</li>
-                                <li>What is virtual memory?</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="view-more-btn">
-                        <a href="computer-fundamentals.html" class="btn btn-outline">View More</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Computer Fundamental Lab -->
-            <div class="subject-archive-container">
-                <div class="subject-header">
-                    <h3 class="subject-title">Computer Fundamental Lab</h3>
-                </div>
-                <div class="archive-content">
-                    <div class="exam-type">
-                        <h4 class="exam-type-title">Mid Exam Topics</h4>
-                        <div class="class-item">
-                            <h5 class="class-name">Lab 1: Hardware Components</h5>
-                            <p class="topic-title">Identifying and Assembling PC Parts</p>
-                            <a href="#" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>List essential PC components</li>
-                                <li>Steps to assemble a computer</li>
-                                <li>Troubleshooting common hardware issues</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="view-more-btn">
-                        <a href="cf-lab.html" class="btn btn-outline">View More</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bangladesh Studies -->
-            <div class="subject-archive-container">
-                <div class="subject-header">
-                    <h3 class="subject-title">Bangladesh Studies</h3>
-                </div>
-                <div class="archive-content">
-                    <div class="exam-type">
-                        <h4 class="exam-type-title">Mid Exam Topics</h4>
-                        <div class="class-item">
-                            <h5 class="class-name">Class 1: History of Bangladesh</h5>
-                            <p class="topic-title">Liberation War and Independence</p>
-                            <a href="#" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>Causes of Liberation War</li>
-                                <li>Major events of 1971</li>
-                                <li>Role of Bangabandhu Sheikh Mujibur Rahman</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="view-more-btn">
-                        <a href="bangladesh-studies.html" class="btn btn-outline">View More</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- English -->
-            <div class="subject-archive-container">
-                <div class="subject-header">
-                    <h3 class="subject-title">English</h3>
-                </div>
-                <div class="archive-content">
-                    <div class="exam-type">
-                        <h4 class="exam-type-title">Mid Exam Topics</h4>
-                        <div class="class-item">
-                            <h5 class="class-name">Class 1: Technical Writing</h5>
-                            <p class="topic-title">Reports and Documentation</p>
-                            <a href="#" class="pdf-link">Download PDF Notes</a>
-                            <ul class="questions-list">
-                                <li>Structure of a technical report</li>
-                                <li>Difference between active and passive voice</li>
-                                <li>Writing clear instructions</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="view-more-btn">
-                        <a href="english.html" class="btn btn-outline">View More</a>
-                    </div>
-                </div>
-            </div>
+<!-- AD Section -->
+    <div class="wide-card ad-card">
+        <div class="ad-card-left">
+          <div class="ad-main-text">Check out our other website: MrBike</div>
+          <div class="ad-sub-text">Your Ultimate Bike Destination in Bangladesh</div>
         </div>
-    </section>
+        <div class="ad-card-right">
+          <div class="ad-image-crop">
+            <img src="images/iPhone-15-Pro-Max-430x932-left.png" alt="BikeBD Website Preview" />
+          </div>
+        </div>
+      </div>
 
-    <!-- Previous Papers Section -->
-    <section id="papers">
-        <div class="container">
-            <h2 class="section-title">Previous Year Question Papers</h2>
-            <div class="papers-grid">
-                <div class="paper-card">
-                    <h3 class="batch-name">Batch-43</h3>
-                    <div class="exam-links">
-                        <div class="exam-link">
-                            <a href="https://drive.google.com/drive/folders/1I62yIR-s1Vx9mGhvyT58zR68JlovSQ80?usp=sharing" target="_blank">MID</a>
-                        </div>
-                        <div class="exam-link">
-                            <a href="https://drive.google.com/drive/folders/1eifn6RmY8rFoVW5TkcRaPmJ65YW8QA4m?usp=sharing" target="_blank">Final</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="paper-card">
-                    <h3 class="batch-name">Batch-44</h3>
-                    <div class="exam-links">
-                        <div class="exam-link">
-                            <a href="https://drive.google.com/drive/folders/1GwxifKLgpKhBHhA9faDw1R5DgQloE_yy?usp=sharing" target="_blank">MID</a>
-                        </div>
-                        <div class="exam-link">
-                            <a href="https://drive.google.com/drive/folders/15OYmcb6QeVqMEAfEis-xNuKB1Kifs5xB?usp=sharing" target="_blank">Final</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="paper-card">
-                    <h3 class="batch-name">Batch-45</h3>
-                    <div class="exam-links">
-                        <div class="exam-link">
-                            <a href="#">MID</a>
-                        </div>
-                        <div class="exam-link">
-                            <a href="#">Final</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 <!-- CG Calculator Section -->
     <section id="calculator">
         <div class="container">
@@ -360,13 +153,48 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p class="footer-note">A Project of UNLEFT</p>
-            <p class="copyright">© 2025 EduPlex. All rights reserved.</p>
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo-row">
+            <img src="images/logo/cropped-image (1).png" alt="Logo" loading="lazy" />
+            <h3>Mr Bike <span class="bd-small">BD</span></h3>
+          </div>
+          <p>Discover the best motorcycles in Bangladesh with Mr. Bike <span class="bd-small">BD</span> – your trusted source for expert reviews, latest prices, dealer info, and everything you need to choose the perfect ride.</p>
         </div>
-    </footer>
-    <script src="js/index.js"></script>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="brand.html">All Bikes</a></li>
+            <li><a href="brand.html">New Bikes</a></li>
+            <li><a href="compare.html">Compare Bikes</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="advertise.html">Advertise</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <h3>Mr Bike <span class=Mr Bike><span class="bd-small">BD</span></span></h3><p>All rights reserved.</p>
+        <p>&copy;2025 | A project of <a href="http://unleft.space/" target="_blank">UNLEFT</a></p>
+      </div>
+    </div>
+  </footer>
+    <script src="js/eduplex_test.js"></script>
 </body>
 </html>

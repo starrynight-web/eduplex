@@ -5,7 +5,6 @@ const messages = [
     "Prepare with previous year questions...",
     "Track your exam countdown...",
     "Calculate your target CGPA...",
-    "All in one place for Software Engineering students!"
 ];
 let messageIndex = 0;
 let charIndex = 0;
@@ -40,28 +39,24 @@ function type() {
 // Start typing animation
 setTimeout(type, 1000);
 
-// Mobile Navigation Toggle
+// Hamburger Menu Toggle (for future use)
 const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    // Add your hamburger menu functionality here
+    console.log('Hamburger menu clicked');
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
+// Batch Selection Dropdown
+const batchSelect = document.getElementById('batch-select');
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+batchSelect.addEventListener('change', function() {
+    const selectedBatch = this.value;
+    if (selectedBatch) {
+        console.log(`Selected batch: ${selectedBatch}`);
+        // Add your batch selection logic here
+        // For example, you could redirect to a specific page or load batch-specific content
     }
 });
 
