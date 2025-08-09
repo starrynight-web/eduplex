@@ -95,91 +95,9 @@ section {
     color: white;
 }
 
-/* Navigation Bar Styles */
-.navbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-}
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    position: relative;
-    margin: 0px;
-}
 
-.nav-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
-.nav-logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.nav-logo img {
-    max-height: 40px;
-    width: auto;
-    display: block;
-}
-
-.nav-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.nav-icons i {
-    font-size: 1.2rem;
-    color: var(--dark-color);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.nav-icons i:hover {
-    color: var(--primary-color);
-}
-
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background: var(--dark-color);
-    margin: 3px 0;
-    transition: var(--transition);
-}
-
-/* Hamburger Animation */
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
 
 /* Header Styles */
 header {
@@ -211,6 +129,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .logo {
@@ -283,6 +202,53 @@ header {
     background: rgba(255, 255, 255, 0.15);
 }
 
+/* Exam Routine Dropdown */
+.exam-routine-dropdown {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.exam-routine-dropdown label {
+    display: block;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.exam-routine-select {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.exam-routine-select:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.exam-routine-select option {
+    background: white;
+    color: black;
+    padding: 8px;
+}
+
+.exam-routine-select:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+}
+
 .header-bg {
     position: absolute;
     top: 0;
@@ -341,7 +307,7 @@ header {
 }
 
 .countdown-label {
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -491,99 +457,7 @@ header {
     font-weight: 600;
 }
 
-    /* Footer */
-    footer {
-        background: var(--light-color);
-        padding: 3rem 0 1rem;
-        border-top: 1px solid var(--dark-color);
-      }
-  
-      .footer-logo-row {
-        display: flex;
-        align-items: center;
-        gap: 12px; /* Adjust spacing as needed */
-      }
-      
-      .footer-logo-row img {
-        max-height: 45px;      /* Reduced from 60px */
-        transform: scale(1);   /* No extra scaling */
-        margin-top: 0;
-        padding-left: 0;
-      }
-      
-      .footer-logo-row h3 {
-        margin: 0;
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        padding-top: 15px;
-        margin-left: -9px;
-        font-weight: bold;
-        letter-spacing: 1px;
-      }
-  
-      .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-  
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-bottom: 2rem;
-      }
-  
-      /* Lower the Quick Links and Support columns in the footer */
-      .footer-content .footer-section:not(:first-child) {
-        margin-top: 1.3rem; /* Adjust this value as needed */
-        /* margin-left: 8rem; */
-      }
-  
-      .footer-section h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-      }
-  
-      .footer-section ul {
-        list-style: none;
-      }
-  
-      .footer-section a {
-        color: var(--dark-color);
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-  
-      .footer-section a:hover {
-        color: var(--primary-color);
-      }
-  
-      .footer-section p {
-        color: var(--dark-color);
-      }
-  
-      .footer-bottom {
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid var(--dark-color);
-        color: var(--dark-color);
-      }
-  
-      .footer-bottom a {
-        text-decoration: none;
-        color: inherit; /* Keeps the color consistent */
-      }
-      .footer-bottom a:hover {
-        color: var(--primary-color); /* Or use any color you prefer */
-        text-decoration: none;       /* Keeps underline off on hover */
-      }    
-      .bd-small{
-        font-size: 0.5em; /* Makes BD visually smaller */
-        vertical-align: super; /* Slight lift, optional */
-        font-weight: bold; /* Keeps the BD bold if needed */
-        letter-spacing: 0.5px;
-      }
+
 
 /* ===== RESPONSIVE DESIGN ===== */
 
@@ -591,7 +465,7 @@ header {
 @media (max-width: 1400px) {
     .container {
         max-width: 1200px;
-        padding: 0 30px;
+        padding: 10px 30px;
     }
     
     .header-content {
@@ -631,7 +505,7 @@ header {
 /* 1200px and below */
 @media (max-width: 1200px) {
     .container {
-        max-width: 1000px;
+        max-width: 1200px;
         padding: 0 25px;
     }
     
@@ -660,7 +534,7 @@ header {
     
     .countdown-container {
         padding: 30px;
-        max-width: 450px;
+        max-width: 400px;
     }
     
     .countdown-title {
@@ -677,7 +551,7 @@ header {
     
     .countdown-item {
         padding: 15px;
-        min-width: 80px;
+        min-width: 75px;
     }
     
     .countdown-number {
@@ -728,582 +602,6 @@ header {
     .section-title {
         font-size: 1.6rem;
         margin-bottom: 30px;
-    }
-    
-    /* Navigation */
-    .nav-container {
-        padding: 12px 15px;
-    }
-    
-    .nav-logo a {
-        font-size: 1.3rem;
-    }
-    
-    .nav-icons i {
-        font-size: 1rem;
-    }
-    
-    /* Header */
-    header {
-        margin-top: 60px;
-        padding: 20px 0;
-    }
-    
-    .header-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        min-height: auto;
-        text-align: center;
-    }
-    
-    .hero-left {
-        text-align: center;
-        padding-left: 0;
-    }
-    
-    .hero-right {
-        order: -1;
-    }
-    
-    .logo {
-        font-size: 1.8rem;
-    }
-    
-    .tagline {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-    }
-    
-    .welcome-text {
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-    }
-    
-    .typing-text {
-        font-size: 1rem;
-        min-height: 40px;
-        margin-bottom: 20px;
-    }
-    
-    .batch-dropdown {
-        margin-bottom: 15px;
-    }
-    
-    .batch-select {
-        max-width: 250px;
-        padding: 10px 12px;
-        font-size: 0.9rem;
-    }
-    
-    /* Countdown */
-    .countdown-container {
-        padding: 25px;
-        max-width: 100%;
-    }
-    
-    .countdown-title {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-    
-    .countdown-subtitle {
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-    
-    .countdown {
-        gap: 10px;
-    }
-    
-    .countdown-item {
-        padding: 12px 8px;
-        min-width: 60px;
-    }
-    
-    .countdown-number {
-        font-size: 1.5rem;
-    }
-    
-    .countdown-label {
-        font-size: 0.7rem;
-    }
-    
-    /* Ad Card */
-    .ad-card {
-        flex-direction: column;
-        min-height: auto;
-        margin: 30px auto 0 auto;
-    }
-    
-    .ad-card-left {
-        padding: 20px;
-        text-align: center;
-    }
-    
-    .ad-main-text {
-        font-size: 1.4rem;
-        margin-bottom: 5px;
-    }
-    
-    .ad-sub-text {
-        font-size: 0.85rem;
-    }
-    
-    .ad-card-right {
-        order: -1;
-    }
-    
-    .ad-image-crop {
-        height: 150px;
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
-    }
-    
-    /* Calculator */
-    .calculator-container {
-        padding: 20px;
-    }
-    
-    .calculator-form {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .form-group {
-        margin-bottom: 12px;
-    }
-    
-    .form-group input {
-        padding: 8px 10px;
-        font-size: 0.9rem;
-    }
-    
-    .calculator-result {
-        padding: 20px;
-    }
-    
-    .result-title {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-    }
-    
-    .result-value {
-        font-size: 1rem;
-    }
-    
-    /* Footer */
-    footer {
-        padding: 2rem 0 1rem;
-    }
-    
-    .footer-container {
-        padding: 0 1.5rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-    }
-    
-    .footer-content .footer-section:not(:first-child) {
-        margin-top: 0;
-    }
-    
-    .footer-logo-row {
-        justify-content: center;
-    }
-    
-    .footer-logo-row h3 {
-        font-size: 1.3rem;
-    }
-}
-
-/* 640px and below */
-@media (max-width: 640px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    section {
-        padding: 30px 0;
-    }
-    
-    .section-title {
-        font-size: 1.4rem;
-        margin-bottom: 25px;
-    }
-    
-    /* Navigation */
-    .nav-container {
-        padding: 10px 12px;
-    }
-    
-    .nav-logo a {
-        font-size: 1.2rem;
-    }
-    
-    .nav-logo img {
-        max-height: 30px;
-    }
-    
-    .hamburger .bar {
-        width: 22px;
-        height: 2px;
-    }
-    
-    /* Header */
-    header {
-        margin-top: 55px;
-        padding: 15px 0;
-    }
-    
-    .header-content {
-        gap: 20px;
-    }
-    
-    .logo {
-        font-size: 1.6rem;
-        margin-bottom: 8px;
-    }
-    
-    .tagline {
-        font-size: 1rem;
-        margin-bottom: 15px;
-    }
-    
-    .welcome-text {
-        font-size: 0.85rem;
-        margin-bottom: 15px;
-        line-height: 1.6;
-    }
-    
-    .typing-text {
-        font-size: 0.9rem;
-        min-height: 35px;
-        margin-bottom: 15px;
-    }
-    
-    .batch-dropdown label {
-        font-size: 0.9rem;
-        margin-bottom: 6px;
-    }
-    
-    .batch-select {
-        max-width: 200px;
-        padding: 8px 10px;
-        font-size: 0.85rem;
-    }
-    
-    /* Countdown */
-    .countdown-container {
-        padding: 20px;
-    }
-    
-    .countdown-title {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-    }
-    
-    .countdown-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-    }
-    
-    .countdown {
-        gap: 8px;
-    }
-    
-    .countdown-item {
-        padding: 10px 6px;
-        min-width: 50px;
-    }
-    
-    .countdown-number {
-        font-size: 1.2rem;
-        margin-bottom: 3px;
-    }
-    
-    .countdown-label {
-        font-size: 0.6rem;
-    }
-    
-    /* Ad Card */
-    .ad-card {
-        margin: 20px auto 0 auto;
-    }
-    
-    .ad-card-left {
-        padding: 15px;
-    }
-    
-    .ad-main-text {
-        font-size: 1.2rem;
-        margin-bottom: 4px;
-    }
-    
-    .ad-sub-text {
-        font-size: 0.8rem;
-    }
-    
-    .ad-image-crop {
-        height: 120px;
-    }
-    
-    /* Calculator */
-    .calculator-container {
-        padding: 15px;
-    }
-    
-    .calculator-form {
-        gap: 12px;
-    }
-    
-    .form-group {
-        margin-bottom: 10px;
-    }
-    
-    .form-group label {
-        font-size: 0.9rem;
-        margin-bottom: 4px;
-    }
-    
-    .form-group input {
-        padding: 7px 8px;
-        font-size: 0.85rem;
-    }
-    
-    .calculator-result {
-        padding: 15px;
-    }
-    
-    .result-title {
-        font-size: 1rem;
-        margin-bottom: 12px;
-    }
-    
-    .result-item {
-        margin-bottom: 12px;
-        padding-bottom: 12px;
-    }
-    
-    .result-label {
-        font-size: 0.9rem;
-    }
-    
-    .result-value {
-        font-size: 0.9rem;
-    }
-    
-    .btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-    
-    /* Footer */
-    footer {
-        padding: 1.5rem 0 1rem;
-    }
-    
-    .footer-container {
-        padding: 0 1rem;
-    }
-    
-    .footer-content {
-        gap: 1rem;
-    }
-    
-    .footer-logo-row {
-        gap: 8px;
-    }
-    
-    .footer-logo-row img {
-        max-height: 35px;
-    }
-    
-    .footer-logo-row h3 {
-        font-size: 1.1rem;
-        padding-top: 10px;
-    }
-    
-    .footer-section h3 {
-        font-size: 1rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .footer-section p {
-        font-size: 0.85rem;
-    }
-    
-    .footer-section ul li {
-        margin-bottom: 0.5rem;
-    }
-    
-    .footer-section a {
-        font-size: 0.85rem;
-    }
-    
-    .footer-bottom {
-        padding-top: 1.5rem;
-        font-size: 0.8rem;
-    }
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* 1400px and below */
-@media (max-width: 1400px) {
-    .container {
-        max-width: 1200px;
-        padding: 12px 30px;
-    }
-    
-    .header-content {
-        gap: 30px;
-    }
-    
-    .logo {
-        font-size: 2.2rem;
-    }
-    
-    .tagline {
-        font-size: 1.3rem;
-    }
-    
-    .welcome-text {
-        font-size: 1rem;
-    }
-    
-    .countdown-container {
-        padding: 35px;
-    }
-    
-    .countdown-title {
-        font-size: 1.6rem;
-    }
-    
-    .ad-main-text {
-        font-size: 1.8rem;
-    }
-    
-    .calculator-container {
-        gap: 25px;
-        padding: 25px;
-    }
-}
-
-/* 1200px and below */
-@media (max-width: 1200px) {
-    .container {
-        max-width: 1000px;
-        padding:12px 25px;
-    }
-    
-    .header-content {
-        gap: 25px;
-        min-height: 50vh;
-    }
-    
-    .logo {
-        font-size: 2rem;
-    }
-    
-    .tagline {
-        font-size: 1.2rem;
-    }
-    
-    .welcome-text {
-        font-size: 0.95rem;
-        margin-bottom: 25px;
-    }
-    
-    .typing-text {
-        font-size: 1.1rem;
-        min-height: 50px;
-    }
-    
-    .countdown-container {
-        padding: 30px;
-        max-width: 450px;
-    }
-    
-    .countdown-title {
-        font-size: 1.5rem;
-    }
-    
-    .countdown-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .countdown {
-        gap: 15px;
-    }
-    
-    .countdown-item {
-        padding: 15px;
-        min-width: 80px;
-    }
-    
-    .countdown-number {
-        font-size: 2rem;
-    }
-    
-    .ad-card {
-        min-height: 160px;
-    }
-    
-    .ad-main-text {
-        font-size: 1.6rem;
-    }
-    
-    .ad-sub-text {
-        font-size: 0.9rem;
-    }
-    
-    .ad-image-crop {
-        height: 200px;
-    }
-    
-    .calculator-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .calculator-form {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-    }
-}
-
-/* 768px and below */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-    }
-    
-    section {
-        padding: 40px 0;
-    }
-    
-    .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 30px;
-    }
-    
-    /* Navigation */
-    .nav-container {
-        padding: 12px 15px;
-    }
-    
-    .nav-logo a {
-        font-size: 1.3rem;
-    }
-    
-    .nav-icons i {
-        font-size: 1rem;
     }
     
     /* Header */
@@ -1358,6 +656,16 @@ header {
         font-size: 0.9rem;
     }
     
+    .exam-routine-dropdown {
+        margin-top: 15px;
+    }
+    
+    .exam-routine-select {
+        max-width: 250px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
     /* Countdown */
     .countdown-container {
         padding: 25px;
@@ -1400,7 +708,7 @@ header {
     
     .ad-card-left {
         padding: 20px;
-        text-align: left;
+        text-align: center;
     }
     
     .ad-main-text {
@@ -1548,6 +856,21 @@ header {
     }
     
     .batch-select {
+        max-width: 200px;
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .exam-routine-dropdown {
+        margin-top: 12px;
+    }
+    
+    .exam-routine-dropdown label {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+    
+    .exam-routine-select {
         max-width: 200px;
         padding: 8px 10px;
         font-size: 0.85rem;

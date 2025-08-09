@@ -39,26 +39,7 @@ function type() {
 // Start typing animation
 setTimeout(type, 1000);
 
-// Hamburger Menu Toggle (for future use)
-const hamburger = document.querySelector('.hamburger');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    // Add your hamburger menu functionality here
-    console.log('Hamburger menu clicked');
-});
-
-// Batch Selection Dropdown
-const batchSelect = document.getElementById('batch-select');
-
-batchSelect.addEventListener('change', function() {
-    const selectedBatch = this.value;
-    if (selectedBatch) {
-        console.log(`Selected batch: ${selectedBatch}`);
-        // Add your batch selection logic here
-        // For example, you could redirect to a specific page or load batch-specific content
-    }
-});
 
 // Archive Toggle
 const subjectHeaders = document.querySelectorAll('.subject-header');
@@ -237,3 +218,17 @@ function generateAnalysis(currentTotal, targetPercentage, requiredFinal, targetC
     
     document.getElementById('analysis').innerHTML = analysis;
 }
+
+// Exam Routine Dropdown Links
+document.getElementById('exam-routine-select').addEventListener('change', function() {
+    const selectedValue = this.value;
+    
+    if (selectedValue === 'mid') {
+        // Open mid exam routine in new tab
+        window.open('https://drive.google.com/file/d/1ImeQAe35t1ZQnfAnQw4DS7M8uNNPJ_h2/view?usp=sharing', '_blank');
+    } else if (selectedValue === 'final') {
+        // Open final exam routine in new tab
+        window.open('https://drive.google.com/file/d/1XVg4coZqAyQhOCAEzLWfzhdRM_yM0r-d/view?usp=drive_link', '_blank');
+    }
+    // If empty value is selected, do nothing
+});
