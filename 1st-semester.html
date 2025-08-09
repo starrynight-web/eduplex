@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlex - Simplify Learning. Master Software.</title>
+    <title>Subjects & Archives - EduPlex</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/1st-semester.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -141,141 +141,39 @@
         </div>
     </div>
 
-    <!-- Header Section with Countdown -->
-    <header>
-        <div class="header-bg"></div>
-        <div class="container header-content">
-            <div class="hero-left">
-                <h1 class="logo">EduPlex</h1>
-                <p class="tagline">Simplify Learning. Master Your Courses.</p>
-                <p class="welcome-text">
-                    EduPlex is your comprehensive learning platform designed specifically for the 45th batch of Software Engineering students of Daffodil International University. 
-                    Access course materials, previous papers, and useful tools to excel in your academic journey.
-                </p>
-                <div class="typing-text" id="typing-text"></div>
-                <div class="batch-dropdown">
-                    <label for="batch-select">Choose your batch</label>
-                    <select id="batch-select" class="batch-select">
-                        <option value="">Select Batch</option>
-                        <option value="45">Batch - 45</option>
-                    </select>
-                </div>
-            </div>
-            <div class="hero-right">
-                <div class="countdown-container">
-                    <h3 class="countdown-title">Final Exam Countdown</h3>
-                    <p class="countdown-subtitle">Prepare like a Pro. Your exam begins in...</p>
-                    <div class="countdown" id="countdown">
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="days">00</div>
-                            <div class="countdown-label">Days</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="hours">00</div>
-                            <div class="countdown-label">Hours</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="minutes">00</div>
-                            <div class="countdown-label">Minutes</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="seconds">00</div>
-                            <div class="countdown-label">Seconds</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="exam-routine-dropdown">
-                    <label for="exam-routine-select">Check your exam routine</label>
-                    <select id="exam-routine-select" class="exam-routine-select">
-                        <option value="">Select Exam Type</option>
-                        <option value="mid">Mid</option>
-                        <option value="final">Final</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </header>
-
-<!-- AD Section -->
-    <div class="wide-card ad-card">
-        <div class="ad-card-left">
-          <div class="ad-main-text">Check out our other website: MrBike</div>
-          <div class="ad-sub-text">Your Ultimate Bike Destination in Bangladesh</div>
-        </div>
-        <div class="ad-card-right">
-          <div class="ad-image-crop">
-            <img src="images/iPhone-15-Pro-Max-430x932-left.png" alt="BikeBD Website Preview" />
-          </div>
-        </div>
-      </div>
-
-<!-- CG Calculator Section -->
-    <section id="calculator">
+    <!-- Main Content -->
+    <main class="main-content">
         <div class="container">
-            <h2 class="section-title">CGPA Calculator</h2>
-            <div class="calculator-container">
-                <div class="calculator-form">
-                    <div class="form-group">
-                        <label for="target-cg">Target CGPA (4.00 scale)</label>
-                        <input type="number" id="target-cg" min="1" max="4" step="0.01" placeholder="Enter target CGPA" required>
-                        <div class="error-message" id="cg-error">CGPA must be between 1.00 and 4.00</div>
+            <section class="subjects-section">
+                <h1 class="section-title">Subjects & Archives</h1>
+                <div class="subjects-grid">
+                    <div class="subject-card" data-subject="introduction-to-software">
+                        <div class="subject-content">
+                            <h3 class="subject-title">Introduction to Software</h3>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="mid-marks">Midterm Marks (25%)</label>
-                        <input type="number" id="mid-marks" min="0" max="25" placeholder="Enter mid marks">
-                        <div class="error-message" id="mid-error">Mid marks must be between 0-25</div>
+                    
+                    <div class="subject-card" data-subject="computer-fundamentals">
+                        <div class="subject-content">
+                            <h3 class="subject-title">Computer Fundamentals</h3>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="presentation">Presentation (8%)</label>
-                        <input type="number" id="presentation" min="0" max="8" placeholder="Enter presentation marks">
-                        <div class="error-message" id="presentation-error">Presentation marks must be between 0-8</div>
+                    
+                    <div class="subject-card" data-subject="bangladesh-studies">
+                        <div class="subject-content">
+                            <h3 class="subject-title">Bangladesh Studies</h3>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="assignment">Assignment (5%)</label>
-                        <input type="number" id="assignment" min="0" max="5" placeholder="Enter assignment marks">
-                        <div class="error-message" id="assignment-error">Assignment marks must be between 0-5</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="ct-marks">Class Test (15%)</label>
-                        <input type="number" id="ct-marks" min="0" max="15" placeholder="Enter CT marks">
-                        <div class="error-message" id="ct-error">CT marks must be between 0-15</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="attendance">Attendance (7%)</label>
-                        <input type="number" id="attendance" min="0" max="7" placeholder="Enter attendance marks">
-                        <div class="error-message" id="attendance-error">Attendance must be between 0-7</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="final-marks">Your message (Optional)</label>
-                        <input type="number" id="final-marks" min="0" max="40" placeholder="Enter your message">
-                        <div class="error-message" id="final-error">Final marks must be between 0-40</div>
-                    </div>
-                    <div class="form-group" style="grid-column: span 2;">
-                        <button class="btn" id="calculate-btn">Calculate</button>
+                    
+                    <div class="subject-card" data-subject="english">
+                        <div class="subject-content">
+                            <h3 class="subject-title">English</h3>
+                        </div>
                     </div>
                 </div>
-                <div class="calculator-result" id="result">
-                    <h3 class="result-title">Your Result</h3>
-                    <div class="result-item">
-                        <div class="result-label">Current Total Marks</div>
-                        <div class="result-value" id="current-total">--</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Target Total Marks</div>
-                        <div class="result-value" id="target-total">--</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Required Final Exam Marks</div>
-                        <div class="result-value" id="required-final">--</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Analysis</div>
-                        <div class="result-value" id="analysis">Enter your details to see analysis</div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
+    </main>
 
   <!-- Footer -->
   <footer id="footer">
@@ -321,6 +219,6 @@
     </div>
   </footer>
     <script src="js/main.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/1st-semester.js"></script>
 </body>
 </html>

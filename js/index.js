@@ -41,25 +41,17 @@ setTimeout(type, 1000);
 
 
 
-// Archive Toggle
-const subjectHeaders = document.querySelectorAll('.subject-header');
-subjectHeaders.forEach(header => {
-    header.addEventListener('click', (e) => {
-        // Don't toggle if click was on the "View More" button
-        if (e.target.closest('.btn-outline')) return;
-        
-        const content = header.nextElementSibling;
-        const isActive = content.classList.contains('active');
-        
-        // Close all other archives
-        document.querySelectorAll('.archive-content').forEach(el => {
-            if (el !== content) el.classList.remove('active');
-        });
-        
-        // Toggle current archive
-        content.classList.toggle('active', !isActive);
+// Batch Selection Dropdown
+const batchSelect = document.getElementById('batch-select');
+
+if (batchSelect) {
+    batchSelect.addEventListener('change', function() {
+        const selectedBatch = this.value;
+        if (selectedBatch === '45') {
+            window.location.href = 'batch-45.html';
+        }
     });
-});
+}
 
 // Countdown Timer
 function updateCountdown() {

@@ -65,11 +65,57 @@ const batchSelect = document.getElementById('batch-select');
 if (batchSelect) {
     batchSelect.addEventListener('change', function() {
         const selectedBatch = this.value;
-        if (selectedBatch) {
-            console.log(`Selected batch: ${selectedBatch}`);
-            // Add your batch selection logic here
-            // For example, you could redirect to a specific page or load batch-specific content
+        if (selectedBatch === '45') {
+            window.location.href = 'batch-45.html';
         }
     });
 }
+
+// Navigation logo click handler
+const navLogo = document.querySelector('.nav-logo a');
+if (navLogo) {
+    navLogo.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html';
+    });
+}
+
+// Sidebar menu item click handlers
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle sidebar menu item clicks
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Check if the item has a link
+            const link = this.querySelector('a');
+            if (link) {
+                // If it's a link, let it handle the navigation naturally
+                return;
+            }
+            
+            // If it's not a link, check for menu text
+            const menuText = this.querySelector('.menu-text');
+            if (menuText) {
+                const text = menuText.textContent.trim();
+                
+                // Handle semester navigation
+                if (text === '1st Semester') {
+                    e.preventDefault();
+                    window.location.href = '1st-semester.html';
+                }
+                // Add more semester handlers as needed
+                else if (text === '2nd Semester') {
+                    e.preventDefault();
+                    // window.location.href = '2nd-semester.html';
+                }
+                else if (text === '3rd Semester') {
+                    e.preventDefault();
+                    // window.location.href = '3rd-semester.html';
+                }
+                // Continue for other semesters...
+            }
+        });
+    });
+});
 
