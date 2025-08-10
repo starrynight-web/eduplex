@@ -59,17 +59,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Batch Selection Dropdown
-const batchSelect = document.getElementById('batch-select');
-
-if (batchSelect) {
-    batchSelect.addEventListener('change', function() {
-        const selectedBatch = this.value;
-        if (selectedBatch === '45') {
-            window.location.href = 'batch-45.html';
-        }
-    });
-}
 
 // Navigation logo click handler
 const navLogo = document.querySelector('.nav-logo a');

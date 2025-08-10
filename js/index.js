@@ -39,8 +39,6 @@ function type() {
 // Start typing animation
 setTimeout(type, 1000);
 
-
-
 // Batch Selection Dropdown
 const batchSelect = document.getElementById('batch-select');
 
@@ -51,7 +49,7 @@ if (batchSelect) {
             window.location.href = 'batch-45.html';
         }
     });
-}
+}   
 
 // Countdown Timer
 function updateCountdown() {
