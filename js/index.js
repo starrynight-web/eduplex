@@ -275,20 +275,20 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
         wrapper.className = 'form-group';
 
         const label = document.createElement('label');
-        label.setAttribute('for', `subject-cg-${rowId}`);
-        label.textContent = 'CG for selected subject (0.00–4.00)';
+        label.setAttribute('for', `subject-marks-${rowId}`);
+        label.textContent = 'Total marks for selected subject (0–100)';
 
         const input = document.createElement('input');
         input.type = 'number';
         input.min = '0';
-        input.max = '4';
-        input.step = '0.01';
-        input.placeholder = 'e.g., 3.75';
-        input.id = `subject-cg-${rowId}`;
+        input.max = '100';
+        input.step = '0.1';
+        input.placeholder = 'e.g., 85.5';
+        input.id = `subject-marks-${rowId}`;
 
         const error = document.createElement('div');
         error.className = 'error-message';
-        error.id = `cg-error-${rowId}`;
+        error.id = `marks-error-${rowId}`;
 
         wrapper.appendChild(label);
         wrapper.appendChild(input);
@@ -362,14 +362,14 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
 
         for (let i = 1; i <= rowCount; i++) {
             const subjectSelect = document.getElementById(`subject-select-${i}`);
-            const cgInput = document.getElementById(`subject-cg-${i}`);
-            if (!subjectSelect || !cgInput) continue;
+            const marksInput = document.getElementById(`subject-marks-${i}`);
+            if (!subjectSelect || !marksInput) continue;
 
             const subjectCode = subjectSelect.value;
-            const cg = parseFloat(cgInput.value);
+            const marks = parseFloat(marksInput.value);
 
             // If the row is completely empty, ignore it so users can calculate without filling all rows
-            const isRowCompletelyEmpty = !subjectCode && (isNaN(cg) || cgInput.value === '');
+            const isRowCompletelyEmpty = !subjectCode && (isNaN(marks) || marksInput.value === '');
             if (isRowCompletelyEmpty) {
                 continue;
             }
@@ -380,13 +380,16 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
                 isValid = false;
                 continue;
             }
-            if (isNaN(cg) || cg < 0 || cg > 4) {
-                showError(`cg-error-${i}`, `subject-cg-${i}`, 'Enter a valid CG between 0 and 4');
+            if (isNaN(marks) || marks < 0 || marks > 100) {
+                showError(`marks-error-${i}`, `subject-marks-${i}`, 'Enter valid marks between 0 and 100');
                 isValid = false;
                 continue;
             }
 
             if (subjectCode) {
+                // Convert marks to CGPA using existing logic
+                const { cgpa } = getGradeAndCgpa(marks);
+                const cg = parseFloat(cgpa);
                 const credit = getSubjectCreditByCode(subjectCode);
                 weightedSum += cg * credit;
                 anyIncluded = true;
@@ -394,13 +397,13 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
         }
 
         if (!isValid || !anyIncluded) {
-            messageEl.textContent = 'Please complete the subject selections and CG inputs.';
+            messageEl.textContent = 'Please complete the subject selections and marks inputs.';
             return;
         }
 
         const total = weightedSum / TOTAL_CREDIT_POINTS;
         resultEl.textContent = total.toFixed(2);
-        messageEl.textContent = 'Calculated using selected subjects over 13 total credit points.';
+        messageEl.textContent = 'Marks converted to CGPA, then weighted by credits over 13 total points.';
     }
 
     // Bind events
