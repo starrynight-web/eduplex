@@ -222,6 +222,7 @@ function cgpaToPercentage(cgpa) {
     // Linear mapping: 4.0 = 80%, 3.0 = 60%, etc.
     return 20 * cgpa;
 }
+
 // Exam Routine Dropdown Links
 document.getElementById('exam-routine-select').addEventListener('change', function() {
     const selectedValue = this.value;
