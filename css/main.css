@@ -369,6 +369,7 @@ footer {
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 25px;
 }
 
 .footer-content {
@@ -756,7 +757,7 @@ footer {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        text-align: center;
+        text-align: left;
     }
     
     .footer-content .footer-section:not(:first-child) {
@@ -764,7 +765,7 @@ footer {
     }
     
     .footer-logo-row {
-        justify-content: center;
+        justify-content: left;
     }
     
     .footer-logo-row h3 {

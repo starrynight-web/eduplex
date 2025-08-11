@@ -306,7 +306,23 @@ header {
     transition: var(--transition);
 }
 
+/* Match select with input styling for consistency */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background: white;
+    transition: var(--transition);
+}
+
 .form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+.form-group select:focus {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
@@ -482,10 +498,6 @@ header {
         grid-template-columns: 1fr 1fr;
     }
     
-    .footer-content {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-    }
 }
 
 /* 768px and below */
@@ -634,7 +646,7 @@ header {
     }
     
     .calculator-form {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 15px;
     }
     
@@ -660,32 +672,6 @@ header {
         font-size: 1rem;
     }
     
-    /* Footer */
-    footer {
-        padding: 2rem 0 1rem;
-    }
-    
-    .footer-container {
-        padding: 0 1.5rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-    }
-    
-    .footer-content .footer-section:not(:first-child) {
-        margin-top: 0;
-    }
-    
-    .footer-logo-row {
-        justify-content: center;
-    }
-    
-    .footer-logo-row h3 {
-        font-size: 1.3rem;
-    }
 }
 
 /* 640px and below */
@@ -880,52 +866,5 @@ header {
         font-size: 0.9rem;
     }
     
-    /* Footer */
-    footer {
-        padding: 1.5rem 0 1rem;
-    }
-    
-    .footer-container {
-        padding: 0 1rem;
-    }
-    
-    .footer-content {
-        gap: 1rem;
-    }
-    
-    .footer-logo-row {
-        gap: 8px;
-    }
-    
-    .footer-logo-row img {
-        max-height: 35px;
-    }
-    
-    .footer-logo-row h3 {
-        font-size: 1.1rem;
-        padding-top: 10px;
-    }
-    
-    .footer-section h3 {
-        font-size: 1rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .footer-section p {
-        font-size: 0.85rem;
-    }
-    
-    .footer-section ul li {
-        margin-bottom: 0.5rem;
-    }
-    
-    .footer-section a {
-        font-size: 0.85rem;
-    }
-    
-    .footer-bottom {
-        padding-top: 1.5rem;
-        font-size: 0.8rem;
-    }
 }
 
