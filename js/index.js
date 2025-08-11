@@ -205,3 +205,208 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
         window.open('https://drive.google.com/file/d/1XVg4coZqAyQhOCAEzLWfzhdRM_yM0r-d/view?usp=drive_link', '_blank');
     }
 });
+
+// =======================
+// Semester CGPA Calculator
+// =======================
+(function initSemesterCgpaCalculator() {
+    const form = document.getElementById('semester-form');
+    if (!form) return; // Only run on index page where section exists
+
+    const addBtn = document.getElementById('add-subject-btn');
+    const calcBtn = document.getElementById('calculate-semester-btn');
+    const resultEl = document.getElementById('semester-cgpa-value');
+    const messageEl = document.getElementById('semester-message');
+    const totalCreditsEl = document.getElementById('semester-total-credits');
+
+    const SUBJECTS = [
+        { code: 'BNS', name: 'Bangladesh Studies (BNS)', credit: 3 },
+        { code: 'CF',  name: 'Computer Fundamentals (CF)', credit: 3 },
+        { code: 'CFL', name: 'Computer Fundamentals Lab (CFL)', credit: 1 },
+        { code: 'ISE', name: 'Introduction To Software Engineering (ISE)', credit: 3 },
+        { code: 'E1',  name: 'English - 1 (E-1)', credit: 3 },
+    ];
+
+    const TOTAL_CREDIT_POINTS = 13;
+    if (totalCreditsEl) totalCreditsEl.textContent = TOTAL_CREDIT_POINTS.toString();
+
+    let rowCount = 0;
+    const MAX_ROWS = 6;
+
+    function createSubjectSelect(rowId) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'form-group';
+
+        const label = document.createElement('label');
+        label.setAttribute('for', `subject-select-${rowId}`);
+        label.textContent = 'Subject';
+
+        const select = document.createElement('select');
+        select.id = `subject-select-${rowId}`;
+        select.className = 'subject-select';
+
+        const defaultOpt = document.createElement('option');
+        defaultOpt.value = '';
+        defaultOpt.textContent = 'Select subject';
+        defaultOpt.disabled = true;
+        defaultOpt.selected = true;
+        select.appendChild(defaultOpt);
+
+        SUBJECTS.forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.code;
+            opt.textContent = s.name;
+            opt.dataset.credit = String(s.credit);
+            select.appendChild(opt);
+        });
+
+        const error = document.createElement('div');
+        error.className = 'error-message';
+        error.id = `subject-error-${rowId}`;
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(select);
+        wrapper.appendChild(error);
+        return wrapper;
+    }
+
+    function createCgInput(rowId) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'form-group';
+
+        const label = document.createElement('label');
+        label.setAttribute('for', `subject-cg-${rowId}`);
+        label.textContent = 'CG for selected subject (0.00–4.00)';
+
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '0';
+        input.max = '4';
+        input.step = '0.01';
+        input.placeholder = 'e.g., 3.75';
+        input.id = `subject-cg-${rowId}`;
+
+        const error = document.createElement('div');
+        error.className = 'error-message';
+        error.id = `cg-error-${rowId}`;
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(input);
+        wrapper.appendChild(error);
+        return wrapper;
+    }
+
+    function getAllSubjectSelects() {
+        return Array.from(form.querySelectorAll('select.subject-select'));
+    }
+
+    function syncDisabledOptions() {
+        const selects = getAllSubjectSelects();
+        const selectedCodes = new Set(
+            selects
+                .map(sel => sel.value)
+                .filter(v => v)
+        );
+
+        selects.forEach(current => {
+            Array.from(current.options).forEach(opt => {
+                if (!opt.value) return; // skip placeholder
+                // Disable if selected in another select
+                opt.disabled = selectedCodes.has(opt.value) && current.value !== opt.value;
+            });
+        });
+    }
+
+    function addRow() {
+        if (rowCount >= MAX_ROWS) return;
+        rowCount += 1;
+        const addGroup = addBtn.parentElement; // insert before Add button
+        const selectGroup = createSubjectSelect(rowCount);
+        const cgGroup = createCgInput(rowCount);
+        form.insertBefore(selectGroup, addGroup);
+        form.insertBefore(cgGroup, addGroup);
+        // Attach change handler to keep options unique
+        const newSelect = selectGroup.querySelector('select.subject-select');
+        newSelect.addEventListener('change', syncDisabledOptions);
+        syncDisabledOptions();
+        updateAddButtonState();
+    }
+
+    function updateAddButtonState() {
+        if (rowCount >= MAX_ROWS) {
+            addBtn.disabled = true;
+            addBtn.textContent = `Limit reached (${MAX_ROWS})`;
+        } else {
+            addBtn.disabled = false;
+            addBtn.textContent = 'Add another subject';
+        }
+    }
+
+    function getSubjectCreditByCode(code) {
+        const found = SUBJECTS.find(s => s.code === code);
+        return found ? found.credit : 0;
+    }
+
+    function calculateSemesterCgpa() {
+        // clear previous errors
+        form.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+            el.textContent = '';
+            const input = el.previousElementSibling;
+            if (input) input.style.borderColor = '#ddd';
+        });
+
+        let isValid = true;
+        let weightedSum = 0;
+        let anyIncluded = false;
+
+        for (let i = 1; i <= rowCount; i++) {
+            const subjectSelect = document.getElementById(`subject-select-${i}`);
+            const cgInput = document.getElementById(`subject-cg-${i}`);
+            if (!subjectSelect || !cgInput) continue;
+
+            const subjectCode = subjectSelect.value;
+            const cg = parseFloat(cgInput.value);
+
+            // If the row is completely empty, ignore it so users can calculate without filling all rows
+            const isRowCompletelyEmpty = !subjectCode && (isNaN(cg) || cgInput.value === '');
+            if (isRowCompletelyEmpty) {
+                continue;
+            }
+
+            // Validate partially filled rows
+            if (!subjectCode) {
+                showError(`subject-error-${i}`, `subject-select-${i}`, 'Please select a subject');
+                isValid = false;
+                continue;
+            }
+            if (isNaN(cg) || cg < 0 || cg > 4) {
+                showError(`cg-error-${i}`, `subject-cg-${i}`, 'Enter a valid CG between 0 and 4');
+                isValid = false;
+                continue;
+            }
+
+            if (subjectCode) {
+                const credit = getSubjectCreditByCode(subjectCode);
+                weightedSum += cg * credit;
+                anyIncluded = true;
+            }
+        }
+
+        if (!isValid || !anyIncluded) {
+            messageEl.textContent = 'Please complete the subject selections and CG inputs.';
+            return;
+        }
+
+        const total = weightedSum / TOTAL_CREDIT_POINTS;
+        resultEl.textContent = total.toFixed(2);
+        messageEl.textContent = 'Calculated using selected subjects over 13 total credit points.';
+    }
+
+    // Bind events
+    addBtn.addEventListener('click', addRow);
+    calcBtn.addEventListener('click', calculateSemesterCgpa);
+
+    // Initialize with one row
+    addRow();
+})();

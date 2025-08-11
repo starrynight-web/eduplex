@@ -306,7 +306,23 @@ header {
     transition: var(--transition);
 }
 
+/* Match select with input styling for consistency */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background: white;
+    transition: var(--transition);
+}
+
 .form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+.form-group select:focus {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);

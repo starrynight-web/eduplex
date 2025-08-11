@@ -215,6 +215,9 @@
             <h2 class="section-title">CGPA Calculator</h2>
             <div class="calculator-container">
                 <div class="calculator-form">
+                    <div class="form-group" style="grid-column: span 2;">
+                        <h3 class="result-title">CGPA per subject</h3>
+                    </div>
                     <div class="form-group">
                         <label for="final-marks">Final (40%)</label>
                         <input type="number" id="final-marks" min="0" max="40" placeholder="Enter final marks">
@@ -269,6 +272,41 @@
                     <div class="result-item">
                         <div class="result-label">Message</div>
                         <div class="result-value" id="analysis">Enter your marks to see your potential</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Semester CGPA Section -->
+    <section id="semester-cgpa">
+        <div class="container">
+            <h2 class="section-title">Total CGPA for the Current Semester</h2>
+            <div class="calculator-container">
+                <div class="calculator-form" id="semester-form">
+                    <!-- Dynamic Subject Rows will be appended here -->
+                    <div class="form-group" style="grid-column: span 2;">
+                        <button class="btn" id="add-subject-btn" type="button">Add another subject</button>
+                    </div>
+
+                    <div class="form-group" style="grid-column: span 2;">
+                        <button class="btn" id="calculate-semester-btn" type="button">Calculate Total CGPA</button>
+                    </div>
+                </div>
+
+                <div class="calculator-result" id="semester-result">
+                    <h3 class="result-title">Your Semester Result</h3>
+                    <div class="result-item">
+                        <div class="result-label">Total Credit Points</div>
+                        <div class="result-value" id="semester-total-credits">13</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Semester CGPA</div>
+                        <div class="result-value" id="semester-cgpa-value">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Message</div>
+                        <div class="result-value" id="semester-message">Select subjects and enter CG to calculate total.</div>
                     </div>
                 </div>
             </div>
