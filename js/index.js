@@ -80,87 +80,134 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// CGPA Calculator
-document.getElementById('calculate-btn').addEventListener('click', function() {
+//CGPA Calculator
+document.getElementById('calculate-btn').addEventListener('click', function () {
     // Reset error messages and styles
     document.querySelectorAll('.error-message').forEach(el => {
         el.style.display = 'none';
+        el.textContent = '';
         el.previousElementSibling.style.borderColor = '#ddd';
     });
-    
+
     // Get and validate inputs
-    const targetCG = parseFloat(document.getElementById('target-cg').value);
-    const midMarks = parseFloat(document.getElementById('mid-marks').value) || 0;
-    const presentation = parseFloat(document.getElementById('presentation').value) || 0;
-    const assignment = parseFloat(document.getElementById('assignment').value) || 0;
-    const ctMarks = parseFloat(document.getElementById('ct-marks').value) || 0;
-    const attendance = parseFloat(document.getElementById('attendance').value) || 0;
-    const finalMarks = parseFloat(document.getElementById('final-marks').value) || 0;
-    
-    // Validate inputs
+    const finalMarks = parseFloat(document.getElementById('final-marks').value);
+    const midMarks = parseFloat(document.getElementById('mid-marks').value);
+    const presentation = parseFloat(document.getElementById('presentation').value);
+    const assignment = parseFloat(document.getElementById('assignment').value);
+    const ctMarks = parseFloat(document.getElementById('ct-marks').value);
+    const attendance = parseFloat(document.getElementById('attendance').value);
+
     let isValid = true;
-    
-    if (isNaN(targetCG) || targetCG < 1 || targetCG > 4) {
-        showError('cg-error', 'target-cg');
+
+    if (isNaN(finalMarks) || finalMarks < 0 || finalMarks > 40) {
+        showError('final-error', 'final-marks', 'Please enter valid input for finals 0–40');
         isValid = false;
     }
-    
-    if (midMarks < 0 || midMarks > 25) {
-        showError('mid-error', 'mid-marks');
+    if (isNaN(midMarks) || midMarks < 0 || midMarks > 25) {
+        showError('mid-error', 'mid-marks', 'Please enter valid input for mid 0–25');
         isValid = false;
     }
-    
-    if (presentation < 0 || presentation > 8) {
-        showError('presentation-error', 'presentation');
+    if (isNaN(presentation) || presentation < 0 || presentation > 8) {
+        showError('presentation-error', 'presentation', 'Please enter valid input for presentation 0–8');
         isValid = false;
     }
-    
-    if (assignment < 0 || assignment > 5) {
-        showError('assignment-error', 'assignment');
+    if (isNaN(assignment) || assignment < 0 || assignment > 5) {
+        showError('assignment-error', 'assignment', 'Please enter valid input for assignment 0–5');
         isValid = false;
     }
-    
-    if (ctMarks < 0 || ctMarks > 15) {
-        showError('ct-error', 'ct-marks');
+    if (isNaN(ctMarks) || ctMarks < 0 || ctMarks > 15) {
+        showError('ct-error', 'ct-marks', 'Please enter valid input for CT 0–15');
         isValid = false;
     }
-    
-    if (attendance < 0 || attendance > 7) {
-        showError('attendance-error', 'attendance');
+    if (isNaN(attendance) || attendance < 0 || attendance > 7) {
+        showError('attendance-error', 'attendance', 'Please enter valid input for attendance 0–7');
         isValid = false;
     }
-    
-    if (finalMarks < 0 || finalMarks > 40) {
-        showError('final-error', 'final-marks');
-        isValid = false;
-    }
-    
+
     if (!isValid) return;
-    
-    // Calculate CGPA to marks conversion (4.0 scale to percentage)
-    const targetPercentage = cgpaToPercentage(targetCG);
-    const currentTotal = midMarks + attendance + ctMarks + presentation + assignment + finalMarks;
-    
-    let requiredFinal = 0;
-    if (finalMarks === 0) {
-        const marksWithoutFinal = midMarks + attendance + ctMarks + presentation + assignment;
-        requiredFinal = Math.max(0, targetPercentage - marksWithoutFinal);
-        requiredFinal = Math.min(40, requiredFinal);
-    }
-    
-    // Display results
-    document.getElementById('current-total').textContent = currentTotal.toFixed(2);
-    document.getElementById('target-total').textContent = targetPercentage.toFixed(2);
-    
-    if (finalMarks === 0) {
-        document.getElementById('required-final').textContent = `${requiredFinal.toFixed(2)} / 40`;
-    } else {
-        document.getElementById('required-final').textContent = `${finalMarks.toFixed(2)} / 40 (entered)`;
-    }
-    
-    // Generate analysis
-    generateAnalysis(currentTotal, targetPercentage, requiredFinal, targetCG, finalMarks);
+
+    // ✅ Calculate total marks
+    const totalMarks = finalMarks + midMarks + presentation + assignment + ctMarks + attendance;
+    document.getElementById('current-total').textContent = totalMarks.toFixed(2);
+
+    // ✅ Determine grade and CGPA
+    const { grade, cgpa } = getGradeAndCgpa(totalMarks);
+    document.getElementById('grade').textContent = grade;
+    document.getElementById('grade').textContent = grade;
+    document.getElementById('cgpa').textContent = cgpa;
+
+    // ✅ Suggest next grade milestone
+    const next = getNextGrade(totalMarks);
+const message = next
+    ? `If you work hard, you can reach grade ${next.grade} (CGPA ${next.cgpa}). You only need ${(next.min - totalMarks).toFixed(2)} more marks to reach that goal.`
+    : `You're already at the highest grade. Excellent work!`;
+    document.getElementById('analysis').textContent = message;
 });
+
+// 🔧 Error display helper
+function showError(errorId, inputId, message) {
+    const errorEl = document.getElementById(errorId);
+    errorEl.textContent = message;
+    errorEl.style.display = 'block';
+    document.getElementById(inputId).style.borderColor = 'red';
+}
+
+// 🎓 Grade and CGPA mapping
+function getGradeAndCgpa(marks) {
+    if (marks >= 80) return { grade: 'A+', cgpa: '4.00' };
+    if (marks >= 75) return { grade: 'A', cgpa: '3.75' };
+    if (marks >= 70) return { grade: 'A-', cgpa: '3.50' };
+    if (marks >= 65) return { grade: 'B+', cgpa: '3.25' };
+    if (marks >= 60) return { grade: 'B', cgpa: '3.00' };
+    if (marks >= 55) return { grade: 'B-', cgpa: '2.75' };
+    if (marks >= 50) return { grade: 'C+', cgpa: '2.50' };
+    if (marks >= 45) return { grade: 'C', cgpa: '2.25' };
+    if (marks >= 40) return { grade: 'D', cgpa: '2.00' };
+    return { grade: 'F', cgpa: '0.00' };
+}
+
+// 🚀 Next grade suggestion
+function getNextGrade(marks) {
+    const thresholds = [
+        { min: 40, grade: 'D', cgpa: '2.00' },
+        { min: 45, grade: 'C', cgpa: '2.25' },
+        { min: 50, grade: 'C+', cgpa: '2.50' },
+        { min: 55, grade: 'B-', cgpa: '2.75' },
+        { min: 60, grade: 'B', cgpa: '3.00' },
+        { min: 65, grade: 'B+', cgpa: '3.25' },
+        { min: 70, grade: 'A-', cgpa: '3.50' },
+        { min: 75, grade: 'A', cgpa: '3.75' },
+        { min: 80, grade: 'A+', cgpa: '4.00' }
+    ];
+
+    for (let i = 0; i < thresholds.length; i++) {
+        if (marks < thresholds[i].min) {
+            return thresholds[i];
+        }
+    }
+    return null;
+}
+
+
+
+// Updated showError function to accept custom message
+function showError(errorId, inputId, message) {
+    const errorEl = document.getElementById(errorId);
+    errorEl.textContent = message;
+    errorEl.style.display = 'block';
+    document.getElementById(inputId).style.borderColor = 'red';
+}
+
+
+// Helper function to show error
+function showError(errorId, inputId) {
+    document.getElementById(errorId).style.display = 'block';
+    document.getElementById(inputId).style.borderColor = 'red';
+}
+
+// Optional: You can add a new analysis function based on total marks if needed
+document.getElementById('analysis').textContent = `Your total score is ${currentTotal.toFixed(2)} out of 100.`;
+
 
 // Helper function to show error messages
 function showError(errorId, inputId) {
@@ -175,40 +222,6 @@ function cgpaToPercentage(cgpa) {
     // Linear mapping: 4.0 = 80%, 3.0 = 60%, etc.
     return 20 * cgpa;
 }
-
-// Generate analysis text
-function generateAnalysis(currentTotal, targetPercentage, requiredFinal, targetCG, finalMarks) {
-    let analysis = "";
-    const roundedCG = Math.round(targetCG * 4) / 4; // Round to nearest 0.25
-    
-    if (currentTotal >= targetPercentage) {
-        analysis = `🎉 You've already achieved your target! Current: ${currentTotal.toFixed(2)}% vs Target: ${targetPercentage.toFixed(2)}% (CGPA ~${roundedCG.toFixed(2)})`;
-    } else if (finalMarks > 0) {
-        const needed = targetPercentage - currentTotal;
-        analysis = `You need ${Math.max(0, needed).toFixed(2)}% more to reach your target CGPA of ${targetCG.toFixed(2)} (~${targetPercentage}%).`;
-        
-        if (needed > 0) {
-            analysis += " Consider improving in other areas or aiming for a higher final exam score.";
-        }
-    } else {
-        analysis = `To achieve CGPA ${targetCG.toFixed(2)} (~${targetPercentage}%), you need ${requiredFinal.toFixed(2)}/40 in the final exam.`;
-        
-        if (requiredFinal > 35) {
-            analysis += "<br><br><span class='highlight'>This will be challenging! Focus on your preparation.</span>";
-        } else if (requiredFinal > 30) {
-            analysis += "<br><br><span class='highlight'>You'll need strong performance in finals.</span>";
-        } else if (requiredFinal > 25) {
-            analysis += "<br><br><span class='highlight'>With good preparation, this is achievable.</span>";
-        } else if (requiredFinal > 20) {
-            analysis += "<br><br><span class='highlight'>This target is comfortably within reach.</span>";
-        } else {
-            analysis += "<br><br><span class='highlight'>You're on track to exceed your target!</span>";
-        }
-    }
-    
-    document.getElementById('analysis').innerHTML = analysis;
-}
-
 // Exam Routine Dropdown Links
 document.getElementById('exam-routine-select').addEventListener('change', function() {
     const selectedValue = this.value;
