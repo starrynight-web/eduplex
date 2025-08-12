@@ -1,14 +1,13 @@
 // Sidebar Menu Functionality
 const hamburger = document.querySelector('.hamburger');
 const sidebar = document.getElementById('sidebar');
-const sidebarOverlay = document.getElementById('sidebar-overlay');
+// const sidebarOverlay = document.getElementById('sidebar-overlay');
 const sidebarClose = document.getElementById('sidebar-close');
 
 // Open sidebar
 hamburger.addEventListener('click', () => {
     hamburger.classList.add('active');
     sidebar.classList.add('active');
-    sidebarOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 });
 
@@ -16,12 +15,20 @@ hamburger.addEventListener('click', () => {
 function closeSidebar() {
     hamburger.classList.remove('active');
     sidebar.classList.remove('active');
-    sidebarOverlay.classList.remove('active');
     document.body.style.overflow = '';
 }
 
+// Optional: close sidebar when clicking outside
+window.addEventListener('click', function (e) {
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.querySelector('.hamburger');
+
+    if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('active');
+    }
+    });
+
 sidebarClose.addEventListener('click', closeSidebar);
-sidebarOverlay.addEventListener('click', closeSidebar);
 
 // Submenu toggle functionality
 const menuParents = document.querySelectorAll('.menu-parent');
@@ -88,8 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (menuText) {
                 const text = menuText.textContent.trim();
                 
-                // Handle semester navigation
-                if (text === '1st Semester') {
+                // Handle batch navigation for previous year exams
+                if (text === 'Batch-43') {
+                    e.preventDefault();
+                    window.location.href = 'batch-43.html';
+                }
+                else if (text === 'Batch-44') {
+                    e.preventDefault();
+                    window.location.href = 'batch-44.html';
+                }
+                // Handle semester navigation (keeping for backward compatibility)
+                else if (text === '1st Semester') {
                     e.preventDefault();
                     window.location.href = '1st-semester.html';
                 }

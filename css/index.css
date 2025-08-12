@@ -421,7 +421,7 @@ header {
 @media (max-width: 1200px) {
     .container {
         max-width: 1200px;
-        padding: 0 25px;
+        padding: 10px 25px;
     }
     
     .header-content {
@@ -503,7 +503,7 @@ header {
 /* 768px and below */
 @media (max-width: 768px) {
     .container {
-        padding: 0 20px;
+        padding: 10px 20px;
     }
     
     section {
@@ -677,7 +677,7 @@ header {
 /* 640px and below */
 @media (max-width: 640px) {
     .container {
-        padding: 0 15px;
+        padding: 10px 15px;
     }
     
     section {

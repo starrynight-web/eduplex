@@ -41,7 +41,7 @@ a:hover {
     width: 100%;
     max-width: 1500px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 10px 20px;
 }
 
 section {
@@ -170,7 +170,7 @@ section {
 }
 
 /* Hamburger Animation */
-.hamburger.active .bar:nth-child(2) {
+/* .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
 
@@ -180,27 +180,9 @@ section {
 
 .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-}
+} */
 
 /* Sidebar Styles */
-.sidebar-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-}
-
-.sidebar-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -220,9 +202,9 @@ section {
 
 .sidebar-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
-    padding: 20px;
+    padding: 13px;
     border-bottom: 1px solid #eee;
     background: var(--light-color);
     color: var(--dark-color);
@@ -1006,7 +988,7 @@ footer {
     }
     
     .sidebar-header {
-        padding: 12px;
+        padding: 7px;
     }
     
     .sidebar-header h3 {
