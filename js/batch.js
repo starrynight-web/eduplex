@@ -28,51 +28,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = '1st-semester.html';
                 break;
             case '2nd':
-                // window.location.href = '2nd-semester.html';
-                console.log('2nd Semester clicked');
-                break;
             case '3rd':
-                // window.location.href = '3rd-semester.html';
-                console.log('3rd Semester clicked');
-                break;
             case '4th':
-                // window.location.href = '4th-semester.html';
-                console.log('4th Semester clicked');
-                break;
             case '5th':
-                // window.location.href = '5th-semester.html';
-                console.log('5th Semester clicked');
-                break;
             case '6th':
-                // window.location.href = '6th-semester.html';
-                console.log('6th Semester clicked');
-                break;
             case '7th':
-                // window.location.href = '7th-semester.html';
-                console.log('7th Semester clicked');
-                break;
             case '8th':
-                // window.location.href = '8th-semester.html';
-                console.log('8th Semester clicked');
-                break;
             case '9th':
-                // window.location.href = '9th-semester.html';
-                console.log('9th Semester clicked');
-                break;
             case '10th':
-                // window.location.href = '10th-semester.html';
-                console.log('10th Semester clicked');
-                break;
             case '11th':
-                // window.location.href = '11th-semester.html';
-                console.log('11th Semester clicked');
-                break;
             case '12th':
-                // window.location.href = '12th-semester.html';
-                console.log('12th Semester clicked');
+                // Redirect to unavailable semester page
+                window.location.href = 'unavailable-semester.html';
                 break;
             default:
                 console.log(`Clicked on ${semester} Semester`);
+                window.location.href = 'unavailable-semester.html';
         }
     }
     

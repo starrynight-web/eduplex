@@ -4,10 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batch-45 - EduPlex</title>
+    <title>Semester Not Available - EduPlex</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/batch.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .unavailable-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .unavailable-message {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .pulse-icon {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -73,80 +126,10 @@
                 </a>
             </div>
 
-            <section class="semesters-section">
-                <h1 class="section-title">Batch-45 Semesters</h1>
-                <div class="semesters-grid">
-                    <div class="semester-card" data-semester="1st">
-                        <div class="semester-content">
-                            <h3 class="semester-title">1st Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="2nd">
-                        <div class="semester-content">
-                            <h3 class="semester-title">2nd Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="3rd">
-                        <div class="semester-content">
-                            <h3 class="semester-title">3rd Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="4th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">4th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="5th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">5th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="6th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">6th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="7th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">7th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="8th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">8th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="9th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">9th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="10th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">10th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="11th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">11th Semester</h3>
-                        </div>
-                    </div>
-
-                    <div class="semester-card" data-semester="12th">
-                        <div class="semester-content">
-                            <h3 class="semester-title">12th Semester</h3>
-                        </div>
-                    </div>
+            <section>
+                <div class="unavailable-content">
+                    <i class="fas fa-clock pulse-icon"></i>
+                    <h2 class="unavailable-message">Not available right now, stay tuned</h2>
                 </div>
             </section>
         </div>
@@ -206,7 +189,6 @@
         </div>
     </footer>
     <script src="js/main.js"></script>
-    <script src="js/batch.js"></script>
 </body>
 
 </html>

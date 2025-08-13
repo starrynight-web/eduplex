@@ -49,7 +49,7 @@ if (batchSelect) {
 
 // Countdown Timer
 function updateCountdown() {
-    const examDate = new Date('August 22, 2025 09:00:00').getTime();
+    const examDate = new Date('August 23, 2025 12:00:00').getTime();
     const now = new Date().getTime();
     const distance = examDate - now;
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/1st-semester.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -34,7 +36,7 @@
         <div class="sidebar-content">
             <div class="menu-section">
                 <div class="menu-item menu-parent">
-                    <span class="menu-text">Batches</span>
+                    <span class="menu-text">Study Materials</span>
                     <span class="menu-arrow">▼</span>
                 </div>
                 <div class="submenu">
@@ -43,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="menu-section">
                 <div class="menu-item menu-parent">
                     <span class="menu-text">Questions & answers of previous year exams</span>
@@ -51,10 +53,10 @@
                 </div>
                 <div class="submenu">
                     <div class="menu-item">
-                        <span class="menu-text">Batch-43</span>
+                        <a href="batch-43.html" class="menu-text">Batch-43</a>
                     </div>
                     <div class="menu-item">
-                        <span class="menu-text">Batch-44</span>
+                        <a href="batch-44.html" class="menu-text">Batch-44</a>
                     </div>
                 </div>
             </div>
@@ -64,6 +66,13 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
+            <!-- Back Button -->
+            <div class="back-button-container">
+                <a href="javascript:history.back()" class="btn back-btn">
+                    <i class="fas fa-arrow-left"></i> Go to previous page
+                </a>
+            </div>
+
             <section class="subjects-section">
                 <h1 class="section-title">Subjects & Archives</h1>
                 <div class="subjects-grid">
@@ -72,19 +81,19 @@
                             <h3 class="subject-title">Introduction to Software</h3>
                         </div>
                     </div>
-                    
+
                     <div class="subject-card" data-subject="computer-fundamentals">
                         <div class="subject-content">
                             <h3 class="subject-title">Computer Fundamentals</h3>
                         </div>
                     </div>
-                    
+
                     <div class="subject-card" data-subject="bangladesh-studies">
                         <div class="subject-content">
                             <h3 class="subject-title">Bangladesh Studies</h3>
                         </div>
                     </div>
-                    
+
                     <div class="subject-card" data-subject="english">
                         <div class="subject-content">
                             <h3 class="subject-title">English</h3>
@@ -95,50 +104,61 @@
         </div>
     </main>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="footer-container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo-row">
-            <img src="images/eduplex logo short.png" alt="Logo" loading="lazy" />
-            <h3>EduPlex</h3>
-          </div>
-          <p>EduPlex is your comprehensive learning platform designed specifically for the 45th batch of Software Engineering students of Daffodil International University. 
-            Access course materials, previous papers, and useful tools to excel in your academic journey.</p>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="batch-45.html">Batch - 45</a></li>
-            <li><a href="questions.html">Questions & answers of previous year exams</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Our Other <br>Website</h3>
-            <ul>
-                <li><a href="mrbike.html">MrBike</a></li>
-            </ul>
-        </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo-row">
+                        <img src="images/eduplex logo short.png" alt="Logo" loading="lazy" />
+                        <h3>EduPlex</h3>
+                    </div>
+                    <p>EduPlex is your comprehensive learning platform designed specifically for the 45th batch of
+                        Software Engineering students of Daffodil International University.
+                        Access course materials, previous papers, and useful tools to excel in your academic journey.
+                    </p>
+                </div>
 
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li>
+                            <h4>Study Materials:</h4>
+                        </li>
+                        <li><a href="batch-45.html">Batch - 45</a></li>
+                        <li>
+                            <h4>Questions & answers of previous year exams:</h4>
+                        </li>
+                        <li><a href="batch-43.html">Batch-43</a></li>
+                        <li><a href="batch-44.html">Batch-44</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Other <br>Website</h3>
+                    <ul>
+                        <li><a href="mrbike.html">MrBike</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <h3>Eduplex</h3>
+                <p>All rights reserved.</p>
+                <p>&copy;2025 | A project of <a href="http://unleft.space/" target="_blank">UNLEFT</a></p>
+            </div>
         </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <h3>Eduplex</h3><p>All rights reserved.</p>
-        <p>&copy;2025 | A project of <a href="http://unleft.space/" target="_blank">UNLEFT</a></p>
-      </div>
-    </div>
-  </footer>
+    </footer>
     <script src="js/main.js"></script>
     <script src="js/1st-semester.js"></script>
 </body>
+
 </html>

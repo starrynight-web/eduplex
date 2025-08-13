@@ -1,7 +1,6 @@
 // Sidebar Menu Functionality
 const hamburger = document.querySelector('.hamburger');
 const sidebar = document.getElementById('sidebar');
-// const sidebarOverlay = document.getElementById('sidebar-overlay');
 const sidebarClose = document.getElementById('sidebar-close');
 
 // Open sidebar
@@ -25,6 +24,7 @@ window.addEventListener('click', function (e) {
 
     if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
         sidebar.classList.remove('active');
+        document.body.style.overflow = '';
     }
     });
 
