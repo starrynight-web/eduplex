@@ -208,10 +208,10 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
 
 // =======================
 // Semester CGPA Calculator
-// =======================
+// ========================
 (function initSemesterCgpaCalculator() {
     const form = document.getElementById('semester-form');
-    if (!form) return; // Only run on index page where section exists
+    if (!form) return;
 
     const addBtn = document.getElementById('add-subject-btn');
     const calcBtn = document.getElementById('calculate-semester-btn');
@@ -228,11 +228,12 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
     ];
 
     const TOTAL_CREDIT_POINTS = 13;
-    if (totalCreditsEl) totalCreditsEl.textContent = TOTAL_CREDIT_POINTS.toString();
+    totalCreditsEl.textContent = TOTAL_CREDIT_POINTS.toString();
 
     let rowCount = 0;
-    const MAX_ROWS = 6;
+    const MAX_ROWS = SUBJECTS.length;
 
+    // Utility: Create subject dropdown
     function createSubjectSelect(rowId) {
         const wrapper = document.createElement('div');
         wrapper.className = 'form-group';
@@ -270,6 +271,7 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
         return wrapper;
     }
 
+    // Utility: Create marks input
     function createCgInput(rowId) {
         const wrapper = document.createElement('div');
         wrapper.className = 'form-group';
@@ -296,36 +298,34 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
         return wrapper;
     }
 
+    // Utility: Get selected subjects
     function getAllSubjectSelects() {
         return Array.from(form.querySelectorAll('select.subject-select'));
     }
 
+    // Prevent duplicate subject selection
     function syncDisabledOptions() {
         const selects = getAllSubjectSelects();
-        const selectedCodes = new Set(
-            selects
-                .map(sel => sel.value)
-                .filter(v => v)
-        );
+        const selectedCodes = new Set(selects.map(sel => sel.value).filter(v => v));
 
         selects.forEach(current => {
             Array.from(current.options).forEach(opt => {
-                if (!opt.value) return; // skip placeholder
-                // Disable if selected in another select
+                if (!opt.value) return;
                 opt.disabled = selectedCodes.has(opt.value) && current.value !== opt.value;
             });
         });
     }
 
+    // Add new subject row
     function addRow() {
         if (rowCount >= MAX_ROWS) return;
         rowCount += 1;
-        const addGroup = addBtn.parentElement; // insert before Add button
+        const addGroup = addBtn.parentElement;
         const selectGroup = createSubjectSelect(rowCount);
         const cgGroup = createCgInput(rowCount);
         form.insertBefore(selectGroup, addGroup);
         form.insertBefore(cgGroup, addGroup);
-        // Attach change handler to keep options unique
+
         const newSelect = selectGroup.querySelector('select.subject-select');
         newSelect.addEventListener('change', syncDisabledOptions);
         syncDisabledOptions();
@@ -333,13 +333,10 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
     }
 
     function updateAddButtonState() {
-        if (rowCount >= MAX_ROWS) {
-            addBtn.disabled = true;
-            addBtn.textContent = `Limit reached (${MAX_ROWS})`;
-        } else {
-            addBtn.disabled = false;
-            addBtn.textContent = 'Add another subject';
-        }
+        addBtn.disabled = rowCount >= MAX_ROWS;
+        addBtn.textContent = rowCount >= MAX_ROWS
+            ? `Limit reached (${MAX_ROWS})`
+            : 'Add another subject';
     }
 
     function getSubjectCreditByCode(code) {
@@ -347,8 +344,34 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
         return found ? found.credit : 0;
     }
 
+    // Convert marks to CGPA
+    function getGradeAndCgpa(marks) {
+        let cgpa = 0;
+        if (marks >= 80) cgpa = 4.00;
+        else if (marks >= 75) cgpa = 3.75;
+        else if (marks >= 70) cgpa = 3.50;
+        else if (marks >= 65) cgpa = 3.25;
+        else if (marks >= 60) cgpa = 3.00;
+        else if (marks >= 55) cgpa = 2.75;
+        else if (marks >= 50) cgpa = 2.50;
+        else if (marks >= 45) cgpa = 2.25;
+        else if (marks >= 40) cgpa = 2.00;
+        else cgpa = 0.00;
+        return { cgpa };
+    }
+
+    function showError(errorId, inputId, message) {
+        const errorEl = document.getElementById(errorId);
+        const inputEl = document.getElementById(inputId);
+        if (errorEl && inputEl) {
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            inputEl.style.borderColor = 'red';
+        }
+    }
+
+    // Main CGPA calculation
     function calculateSemesterCgpa() {
-        // clear previous errors
         form.querySelectorAll('.error-message').forEach(el => {
             el.style.display = 'none';
             el.textContent = '';
@@ -368,13 +391,9 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
             const subjectCode = subjectSelect.value;
             const marks = parseFloat(marksInput.value);
 
-            // If the row is completely empty, ignore it so users can calculate without filling all rows
-            const isRowCompletelyEmpty = !subjectCode && (isNaN(marks) || marksInput.value === '');
-            if (isRowCompletelyEmpty) {
-                continue;
-            }
+            const isRowEmpty = !subjectCode && (isNaN(marks) || marksInput.value === '');
+            if (isRowEmpty) continue;
 
-            // Validate partially filled rows
             if (!subjectCode) {
                 showError(`subject-error-${i}`, `subject-select-${i}`, 'Please select a subject');
                 isValid = false;
@@ -386,23 +405,20 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
                 continue;
             }
 
-            if (subjectCode) {
-                // Convert marks to CGPA using existing logic
-                const { cgpa } = getGradeAndCgpa(marks);
-                const cg = parseFloat(cgpa);
-                const credit = getSubjectCreditByCode(subjectCode);
-                weightedSum += cg * credit;
-                anyIncluded = true;
-            }
+            const { cgpa } = getGradeAndCgpa(marks);
+            const credit = getSubjectCreditByCode(subjectCode);
+            weightedSum += cgpa * credit;
+            anyIncluded = true;
         }
 
         if (!isValid || !anyIncluded) {
             messageEl.textContent = 'Please complete the subject selections and marks inputs.';
+            resultEl.textContent = '--';
             return;
         }
 
-        const total = weightedSum / TOTAL_CREDIT_POINTS;
-        resultEl.textContent = total.toFixed(2);
+        const totalCgpa = weightedSum / TOTAL_CREDIT_POINTS;
+        resultEl.textContent = totalCgpa.toFixed(2);
         messageEl.textContent = 'Marks converted to CGPA, then weighted by credits over 13 total points.';
     }
 
