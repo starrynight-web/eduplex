@@ -5,7 +5,8 @@ header {
     padding: 2.5px 0 25px;
     position: relative;
     overflow: hidden;
-    margin-top: 70px; /* Add margin to account for fixed navbar */
+    margin-top: 58px;
+    /* Add margin to account for fixed navbar */
 }
 
 .header-content {
@@ -91,7 +92,7 @@ header {
 }
 
 .batch-select option {
-    background: white;
+    background: #d3d1d5;
     color: black;
     padding: 8px;
 }
@@ -138,7 +139,7 @@ header {
 }
 
 .exam-routine-select option {
-    background: white;
+    background: #d3d1d5;
     color: black;
     padding: 8px;
 }
@@ -159,8 +160,13 @@ header {
 }
 
 @keyframes bgMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 1000px 1000px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 1000px 1000px;
+    }
 }
 
 /* Countdown Section */
@@ -223,53 +229,54 @@ header {
     align-items: stretch;
     overflow: hidden;
     min-height: 180px;
-  }
-  
-  .ad-card-left {
+}
+
+.ad-card-left {
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 32px 24px;
-  }
-  
-  .ad-main-text {
+}
+
+.ad-main-text {
     font-family: Tahoma;
     font-size: 2rem;
     font-weight: 1000;
     color: var(--light-color);
     margin-bottom: 8px;
-  }
-  
-  .ad-sub-text {
+}
+
+.ad-sub-text {
     font-size: 1rem;
     color: var(--light-color);
-  }
-  
-  .ad-card-right {
+}
+
+.ad-card-right {
     flex: 1 1 0;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .ad-image-crop {
+}
+
+.ad-image-crop {
     width: 100%;
-    height: 250px; /*Show only top half (adjust as needed)*/
+    height: 250px;
+    /*Show only top half (adjust as needed)*/
     overflow: hidden;
     border-radius: 0 0 var(--border-radius) 0;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
-  }
-  
-  .ad-image-crop img {
+}
+
+.ad-image-crop img {
     width: 100%;
     object-fit: cover;
     object-position: top;
     display: block;
-  }
-  
+}
+
 
 /* CG Calculator Section */
 .calculator-container {
@@ -382,35 +389,35 @@ header {
         max-width: 1200px;
         padding: 10px 30px;
     }
-    
+
     .header-content {
         gap: 30px;
     }
-    
+
     .logo {
         font-size: 2.2rem;
     }
-    
+
     .tagline {
         font-size: 1.3rem;
     }
-    
+
     .welcome-text {
         font-size: 1rem;
     }
-    
+
     .countdown-container {
         padding: 35px;
     }
-    
+
     .countdown-title {
         font-size: 1.6rem;
     }
-    
+
     .ad-main-text {
         font-size: 1.8rem;
     }
-    
+
     .calculator-container {
         gap: 25px;
         padding: 25px;
@@ -423,81 +430,81 @@ header {
         max-width: 1200px;
         padding: 10px 25px;
     }
-    
+
     .header-content {
         gap: 25px;
         min-height: 50vh;
     }
-    
+
     .logo {
         font-size: 2rem;
     }
-    
+
     .tagline {
         font-size: 1.2rem;
     }
-    
+
     .welcome-text {
         font-size: 0.95rem;
         margin-bottom: 25px;
     }
-    
+
     .typing-text {
         font-size: 1.1rem;
         min-height: 50px;
     }
-    
+
     .countdown-container {
         padding: 30px;
         max-width: 400px;
     }
-    
+
     .countdown-title {
         font-size: 1.5rem;
     }
-    
+
     .countdown-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .countdown {
         gap: 15px;
     }
-    
+
     .countdown-item {
         padding: 15px;
         min-width: 75px;
     }
-    
+
     .countdown-number {
         font-size: 2rem;
     }
-    
+
     .ad-card {
         min-height: 160px;
     }
-    
+
     .ad-main-text {
         font-size: 1.6rem;
     }
-    
+
     .ad-sub-text {
         font-size: 0.9rem;
     }
-    
+
     .ad-image-crop {
         height: 200px;
     }
-    
+
     .calculator-container {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .calculator-form {
         grid-template-columns: 1fr 1fr;
     }
-    
+
 }
 
 /* 768px and below */
@@ -505,173 +512,173 @@ header {
     .container {
         padding: 10px 20px;
     }
-    
+
     section {
         padding: 40px 0;
     }
-    
+
     .section-title {
         font-size: 1.6rem;
         margin-bottom: 30px;
     }
-    
+
     /* Header */
     header {
         margin-top: 60px;
         padding: 20px 0;
     }
-    
+
     .header-content {
         grid-template-columns: 1fr;
         gap: 30px;
         min-height: auto;
         text-align: center;
     }
-    
+
     .hero-left {
         text-align: center;
         padding-left: 0;
     }
-    
+
     .hero-right {
         order: +1;
     }
-    
+
     .logo {
         font-size: 1.8rem;
     }
-    
+
     .tagline {
         font-size: 1.1rem;
         margin-bottom: 20px;
     }
-    
+
     .welcome-text {
         font-size: 0.9rem;
         margin-bottom: 20px;
     }
-    
+
     .typing-text {
         font-size: 1rem;
         min-height: 40px;
         margin-bottom: 20px;
     }
-    
+
     .batch-dropdown {
         margin-bottom: 15px;
     }
-    
+
     .batch-select {
         max-width: 250px;
         padding: 10px 12px;
         font-size: 0.9rem;
     }
-    
+
     .exam-routine-dropdown {
         margin-top: 15px;
     }
-    
+
     .exam-routine-select {
         max-width: 250px;
         padding: 10px 12px;
         font-size: 0.9rem;
     }
-    
+
     /* Countdown */
     .countdown-container {
         padding: 25px;
         max-width: 100%;
     }
-    
+
     .countdown-title {
         font-size: 1.3rem;
         margin-bottom: 15px;
     }
-    
+
     .countdown-subtitle {
         font-size: 1rem;
         margin-bottom: 20px;
     }
-    
+
     .countdown {
         gap: 10px;
     }
-    
+
     .countdown-item {
         padding: 12px 8px;
         min-width: 60px;
     }
-    
+
     .countdown-number {
         font-size: 1.5rem;
     }
-    
+
     .countdown-label {
         font-size: 0.7rem;
     }
-    
+
     /* Ad Card */
     .ad-card {
         flex-direction: row-reverse;
         min-height: auto;
         margin: 30px auto 0 auto;
     }
-    
+
     .ad-card-left {
         padding: 20px;
         text-align: center;
     }
-    
+
     .ad-main-text {
         font-size: 1.4rem;
         margin-bottom: 5px;
     }
-    
+
     .ad-sub-text {
         font-size: 0.85rem;
     }
-    
+
     .ad-card-right {
         order: -1;
     }
-    
+
     .ad-image-crop {
         height: 150px;
         border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
-    
+
     /* Calculator */
     .calculator-container {
         padding: 20px;
     }
-    
+
     .calculator-form {
         grid-template-columns: 1fr 1fr;
         gap: 15px;
     }
-    
+
     .form-group {
         margin-bottom: 12px;
     }
-    
+
     .form-group input {
         padding: 8px 10px;
         font-size: 0.9rem;
     }
-    
+
     .calculator-result {
         padding: 20px;
     }
-    
+
     .result-title {
         font-size: 1.1rem;
         margin-bottom: 15px;
     }
-    
+
     .result-value {
         font-size: 1rem;
     }
-    
+
 }
 
 /* 640px and below */
@@ -679,192 +686,191 @@ header {
     .container {
         padding: 10px 15px;
     }
-    
+
     section {
         padding: 30px 0;
     }
-    
+
     .section-title {
         font-size: 1.4rem;
         margin-bottom: 25px;
     }
-    
+
     /* Navigation */
     .nav-container {
         padding: 10px 12px;
     }
-    
+
     .nav-logo a {
         font-size: 1.2rem;
     }
-    
+
     .hamburger .bar {
         width: 22px;
         height: 2px;
     }
-    
+
     /* Header */
     header {
-        margin-top: 55px;
+        margin-top: 45px;
         padding: 15px 0;
     }
-    
+
     .header-content {
         gap: 20px;
     }
-    
+
     .logo {
         font-size: 1.6rem;
         margin-bottom: 8px;
     }
-    
+
     .tagline {
         font-size: 1rem;
         margin-bottom: 15px;
     }
-    
+
     .welcome-text {
         font-size: 0.85rem;
         margin-bottom: 15px;
         line-height: 1.6;
     }
-    
+
     .typing-text {
         font-size: 0.9rem;
         min-height: 35px;
         margin-bottom: 15px;
     }
-    
+
     .batch-dropdown label {
         font-size: 0.9rem;
         margin-bottom: 6px;
     }
-    
+
     .batch-select {
         max-width: 200px;
         padding: 8px 10px;
         font-size: 0.85rem;
     }
-    
+
     .exam-routine-dropdown {
         margin-top: 12px;
     }
-    
+
     .exam-routine-dropdown label {
         font-size: 0.9rem;
         margin-bottom: 6px;
     }
-    
+
     .exam-routine-select {
         max-width: 200px;
         padding: 8px 10px;
         font-size: 0.85rem;
     }
-    
+
     /* Countdown */
     .countdown-container {
         padding: 20px;
     }
-    
+
     .countdown-title {
         font-size: 1.1rem;
         margin-bottom: 10px;
     }
-    
+
     .countdown-subtitle {
         font-size: 0.9rem;
         margin-bottom: 15px;
     }
-    
+
     .countdown {
         gap: 8px;
     }
-    
+
     .countdown-item {
         padding: 10px 6px;
         min-width: 50px;
     }
-    
+
     .countdown-number {
         font-size: 1.2rem;
         margin-bottom: 3px;
     }
-    
+
     .countdown-label {
         font-size: 0.6rem;
     }
-    
+
     /* Ad Card */
     .ad-card {
         margin: 20px auto 0 auto;
     }
-    
+
     .ad-card-left {
         padding: 15px;
     }
-    
+
     .ad-main-text {
         font-size: 1.2rem;
         margin-bottom: 4px;
     }
-    
+
     .ad-sub-text {
         font-size: 0.8rem;
     }
-    
+
     .ad-image-crop {
         height: 120px;
     }
-    
+
     /* Calculator */
     .calculator-container {
         padding: 15px;
     }
-    
+
     .calculator-form {
         gap: 12px;
     }
-    
+
     .form-group {
         margin-bottom: 10px;
     }
-    
+
     .form-group label {
         font-size: 0.9rem;
         margin-bottom: 4px;
     }
-    
+
     .form-group input {
         padding: 7px 8px;
         font-size: 0.85rem;
     }
-    
+
     .calculator-result {
         padding: 15px;
     }
-    
+
     .result-title {
         font-size: 1rem;
         margin-bottom: 12px;
     }
-    
+
     .result-item {
         margin-bottom: 12px;
         padding-bottom: 12px;
     }
-    
+
     .result-label {
         font-size: 0.9rem;
     }
-    
+
     .result-value {
         font-size: 0.9rem;
     }
-    
+
     .btn {
         padding: 8px 16px;
         font-size: 0.9rem;
     }
-    
-}
 
+}

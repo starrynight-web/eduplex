@@ -421,10 +421,55 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
         resultEl.textContent = totalCgpa.toFixed(2);
         messageEl.textContent = 'Marks converted to CGPA, then weighted by credits over 13 total points.';
     }
-
+    // Refresh all subject inputs
+    function refreshSubjectInputs() {
+        // Remove all subject rows except the first one
+        const subjectRows = Array.from(form.querySelectorAll('.form-group')).filter(el => 
+            el.querySelector('select.subject-select') || 
+            el.querySelector('input[type="number"]')
+        );
+        
+        // Keep only the first row (remove all others)
+        for (let i = 2; i < subjectRows.length; i++) {
+            form.removeChild(subjectRows[i]);
+        }
+        
+        // Reset the first row
+        const firstSelect = document.getElementById('subject-select-1');
+        const firstMarks = document.getElementById('subject-marks-1');
+        if (firstSelect) firstSelect.value = '';
+        if (firstMarks) firstMarks.value = '';
+        
+        // Reset row count
+        rowCount = 1;
+        
+        // Update button state
+        updateAddButtonState();
+        
+        // Clear any errors
+        form.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+            el.textContent = '';
+            const input = el.previousElementSibling;
+            if (input) input.style.borderColor = '#ddd';
+        });
+        
+        // Clear results
+        resultEl.textContent = '--';
+        messageEl.textContent = 'Select subjects and enter CG to calculate total.';
+        
+        // Re-enable all options in the first select
+        if (firstSelect) {
+            Array.from(firstSelect.options).forEach(opt => {
+                opt.disabled = false;
+            });
+        }
+}
     // Bind events
     addBtn.addEventListener('click', addRow);
     calcBtn.addEventListener('click', calculateSemesterCgpa);
+    // Bind refresh button
+    document.getElementById('refresh-subjects-btn').addEventListener('click', refreshSubjectInputs);
 
     // Initialize with one row
     addRow();

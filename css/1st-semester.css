@@ -6,6 +6,7 @@ body {
     background-color: #f5f7ff;
     overflow-x: hidden;
 }
+
 /* Main Content */
 .main-content {
     min-height: calc(100vh - 70px);
@@ -13,10 +14,9 @@ body {
     padding: 40px 0;
 }
 
-.subjects-section{
+.subjects-section {
     padding: 20px 0;
 }
-
 
 /* Section Title */
 .section-title {
@@ -43,25 +43,25 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px 0;
 }
 
-/* Subject Cards */
-.subject-card {
+/* Subject Archive Container */
+.subject-archive-container {
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 25px 30px;
     cursor: pointer;
-    transition: var(--transition);
     border: 1px solid rgba(67, 97, 238, 0.1);
     position: relative;
     overflow: hidden;
+    transition: var(--transition);
 }
 
-.subject-card::before {
+.subject-archive-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -72,20 +72,22 @@ body {
     transition: left 0.5s;
 }
 
-.subject-card:hover::before {
+.subject-archive-container:hover::before {
     left: 100%;
 }
 
-.subject-card:hover {
+.subject-archive-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-color);
 }
 
-.subject-content {
+/* Subject Header */
+.subject-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
     position: relative;
     z-index: 1;
 }
@@ -96,54 +98,132 @@ body {
     color: var(--secondary-color);
     margin: 0;
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
-
-.subject-card:hover{
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+/* Archive Content */
+.archive-content {
+    display: none;
+    margin-top: 20px;
 }
 
-/* Responsive Design */
+.archive-content.active {
+    display: block;
+}
+
+/* Exam Type */
+.exam-type {
+    margin-bottom: 30px;
+}
+
+.exam-type-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Class Item */
+.class-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.class-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.class-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.topic-title {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.pdf-link {
+    display: inline-block;
+    margin: 5px 0 10px;
+    color: var(--danger-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.pdf-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.questions-list {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.questions-list li {
+    margin-bottom: 5px;
+}
+
+/* View More Button */
+.view-more-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.back-btn i {
+    font-size: 0.9rem;
+} */
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .main-content {
-        padding: 30px 0;
-    }
-    
-    .back-button {
-        margin-bottom: 20px;
-        padding: 0 15px;
-    }
-    
-    .back-link {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-    
     .section-title {
         font-size: 2rem;
-        margin-bottom: 15px;
     }
-    
-    .subjects-grid {
-        max-width: 100%;
-        padding: 15px 0;
-        gap: 15px;
+
+    .subject-archive-container {
+        padding: 20px;
     }
-    
-    .subject-card {
-        padding: 20px 25px;
-        margin: 0 15px;
-    }
-    
+
     .subject-title {
-        font-size: 1.1rem;
-    }
-    
-    .subject-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -151,62 +231,17 @@ body {
     .section-title {
         font-size: 1.8rem;
     }
-    
-    .subject-card {
-        padding: 18px 20px;
-        margin: 0 10px;
+
+    .subject-archive-container {
+        padding: 15px;
     }
-    
-    .subject-title {
-        font-size: 1rem;
+
+    .class-item {
+        padding: 12px;
     }
-    
-    .subject-icon {
-        width: 35px;
-        height: 35px;
+
+    .btn {
+        padding: 8px 16px;
         font-size: 0.9rem;
     }
-}
-
-/* Animation for cards */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.subject-card {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.subject-card:nth-child(1) { animation-delay: 0.1s; }
-.subject-card:nth-child(2) { animation-delay: 0.2s; }
-.subject-card:nth-child(3) { animation-delay: 0.3s; }
-.subject-card:nth-child(4) { animation-delay: 0.4s; }
-.subject-card:nth-child(5) { animation-delay: 0.5s; }
-
-/* Loading state */
-.subject-card.loading {
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-/* Active state */
-.subject-card.active {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
-}
-
-.subject-card.active .subject-title {
-    color: white;
-}
-
-.subject-card.active .subject-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
 }
