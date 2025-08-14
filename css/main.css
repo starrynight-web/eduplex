@@ -95,6 +95,16 @@ section {
     color: white;
 }
 
+/* Add this to your existing CSS */
+#add-subject-btn,
+#refresh-subjects-btn {
+    flex: 1;
+}
+
+#refresh-subjects-btn i {
+    margin-right: 5px;
+}
+
 /* Back Button Styles */
 .back-button-container {
     margin-bottom: 20px;
