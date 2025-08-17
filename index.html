@@ -41,7 +41,7 @@
                 </div>
                 <div class="submenu">
                     <div class="menu-item">
-                        <a href="batch-45.html" class="menu-text">Batch-45</a>
+                        <a href="batch-45-1st-semester.html" class="menu-text">Batch-45</a>
                     </div>
                 </div>
             </div>
@@ -53,10 +53,10 @@
                 </div>
                 <div class="submenu">
                     <div class="menu-item">
-                        <a href="batch-43.html" class="menu-text">Batch-43</a>
+                        <a href="batch-43-1st-semester.html" class="menu-text">Batch-43</a>
                     </div>
                     <div class="menu-item">
-                        <a href="batch-44.html" class="menu-text">Batch-44</a>
+                        <a href="batch-44-1st-semester.html" class="menu-text">Batch-44</a>
                     </div>
                 </div>
             </div>
@@ -187,41 +187,74 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="calculator-container">
-                <div class="calculator-form" id="semester-form">
-                    <div class="form-group" style="grid-column: span 2;">
-                        <h3 class="result-title">Total CGPA for the Current Semester</h3>
-                    </div>
-                    <!-- Dynamic Subject Rows will be appended here -->
-                    <div class="form-group" style="grid-column: span 2;">
-                        <button class="btn" id="add-subject-btn" type="button">Add another subject</button>
-                        <button class="btn btn-outline" id="refresh-subjects-btn" type="button"><i class="fas fa-sync-alt"></i> Refresh </button>
-                    </div>
-
-                    <div class="form-group" style="grid-column: span 2;">
-                        <button class="btn" id="calculate-semester-btn" type="button">Calculate Total CGPA</button>
-                    </div>
+    <div class="container">
+        <div class="calculator-container">
+            <div class="calculator-form" id="semester-form">
+                <div style="grid-column: span 2;">
+                    <h3 class="result-title">Total CGPA for the Current Semester</h3>
+                </div>
+                
+                <!-- Bangladesh Studies -->
+                <div class="form-group">
+                    <label for="bns-marks">Bangladesh Studies (BNS) - 3 Credits</label>
+                    <input type="number" id="bns-marks" min="0" max="100" step="0.1" placeholder="Enter marks (0-100)">
+                    <div class="error-message" id="bns-error"></div>
+                </div>
+                
+                <!-- Computer Fundamentals -->
+                <div class="form-group">
+                    <label for="cf-marks">Computer Fundamentals (CF) - 3 Credits</label>
+                    <input type="number" id="cf-marks" min="0" max="100" step="0.1" placeholder="Enter marks (0-100)">
+                    <div class="error-message" id="cf-error"></div>
+                </div>
+                
+                <!-- Computer Fundamentals Lab -->
+                <div class="form-group">
+                    <label for="cfl-marks">Computer Fundamentals Lab (CFL) - 1 Credit</label>
+                    <input type="number" id="cfl-marks" min="0" max="100" step="0.1" placeholder="Enter marks (0-100)">
+                    <div class="error-message" id="cfl-error"></div>
+                </div>
+                
+                <!-- Introduction to Software Engineering -->
+                <div class="form-group">
+                    <label for="ise-marks">Intro to Software Eng (ISE) - 3 Credits</label>
+                    <input type="number" id="ise-marks" min="0" max="100" step="0.1" placeholder="Enter marks (0-100)">
+                    <div class="error-message" id="ise-error"></div>
+                </div>
+                
+                <!-- English - 1 -->
+                <div class="form-group">
+                    <label for="e1-marks">English - 1 (E-1) - 3 Credits</label>
+                    <input type="number" id="e1-marks" min="0" max="100" step="0.1" placeholder="Enter marks (0-100)">
+                    <div class="error-message" id="e1-error"></div>
                 </div>
 
-                <div class="calculator-result" id="semester-result">
-                    <h3 class="result-title">Your Semester Result</h3>
-                    <div class="result-item">
-                        <div class="result-label">Total Credit Points</div>
-                        <div class="result-value" id="semester-total-credits">13</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Semester CGPA</div>
-                        <div class="result-value" id="semester-cgpa-value">--</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Message</div>
-                        <div class="result-value" id="semester-message">Select subjects and enter Marks to calculate total.
-                        </div>
-                    </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <button class="btn" id="calculate-semester-btn" type="button">Calculate Total CGPA</button>
+                </div>
+            </div>
+
+            <div class="calculator-result" id="semester-result">
+                <h3 class="result-title">Your Semester Result</h3>
+                <div class="result-item">
+                    <div class="result-label">Total Credit Points</div>
+                    <div class="result-value" id="semester-total-credits">13</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Semester CGPA</div>
+                    <div class="result-value" id="semester-cgpa-value">--</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Semester Grade</div>
+                    <div class="result-value" id="semester-grade">--</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Message</div>
+                    <div class="result-value" id="semester-message">Enter your marks to calculate your semester CGPA</div>
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
     <!-- Footer -->
@@ -245,12 +278,12 @@
                         <li>
                             <h4>Study Materials:</h4>
                         </li>
-                        <li><a href="batch-45.html">Batch - 45</a></li>
+                        <li><a href="batch-45-1st-semester.html">Batch - 45</a></li>
                         <li>
                             <h4>Questions & answers of previous year exams:</h4>
                         </li>
-                        <li><a href="batch-43.html">Batch-43</a></li>
-                        <li><a href="batch-44.html">Batch-44</a></li>
+                        <li><a href="batch-43-1st-semester.html">Batch-43</a></li>
+                        <li><a href="batch-44-1st-semester.html">Batch-44</a></li>
                     </ul>
                 </div>
                 

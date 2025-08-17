@@ -42,10 +42,19 @@ const batchSelect = document.getElementById('batch-select');
 if (batchSelect) {
     batchSelect.addEventListener('change', function () {
         if (this.value === '45') {
-            window.location.href = 'batch-45.html';
+            window.location.href = 'batch-45-1st-semester.html';
         }
     });
 }
+
+// Exam Routine Dropdown Links
+document.getElementById('exam-routine-select').addEventListener('change', function () {
+    if (this.value === 'mid') {
+        window.open('https://drive.google.com/file/d/1ImeQAe35t1ZQnfAnQw4DS7M8uNNPJ_h2/view?usp=sharing', '_blank');
+    } else if (this.value === 'final') {
+        window.open('https://drive.google.com/file/d/1XVg4coZqAyQhOCAEzLWfzhdRM_yM0r-d/view?usp=drive_link', '_blank');
+    }
+});
 
 // Countdown Timer
 function updateCountdown() {
@@ -196,15 +205,6 @@ function getNextGrade(marks) {
 function cgpaToPercentage(cgpa) {
     return 20 * cgpa; // simple linear mapping
 }
-
-// Exam Routine Dropdown Links
-document.getElementById('exam-routine-select').addEventListener('change', function () {
-    if (this.value === 'mid') {
-        window.open('https://drive.google.com/file/d/1ImeQAe35t1ZQnfAnQw4DS7M8uNNPJ_h2/view?usp=sharing', '_blank');
-    } else if (this.value === 'final') {
-        window.open('https://drive.google.com/file/d/1XVg4coZqAyQhOCAEzLWfzhdRM_yM0r-d/view?usp=drive_link', '_blank');
-    }
-});
 
 // =======================
 // Semester CGPA Calculator
