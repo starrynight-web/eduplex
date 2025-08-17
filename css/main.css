@@ -590,7 +590,7 @@ footer {
 /* 768px and below */
 @media (max-width: 768px) {
     .container {
-        padding: 0 20px;
+        padding: 15px 20px;
     }
 
     section {
@@ -805,7 +805,7 @@ footer {
 /* 640px and below */
 @media (max-width: 640px) {
     .container {
-        padding: 0 15px;
+        padding: 5px 15px;
     }
 
     section {

@@ -217,67 +217,6 @@ header {
     letter-spacing: 1px;
 }
 
-/* Ad section */
-.wide-card.ad-card {
-    width: 100%;
-    max-width: 1200px;
-    margin: 40px auto 0 auto;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    display: flex;
-    align-items: stretch;
-    overflow: hidden;
-    min-height: 180px;
-}
-
-.ad-card-left {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 32px 24px;
-}
-
-.ad-main-text {
-    font-family: Tahoma;
-    font-size: 2rem;
-    font-weight: 1000;
-    color: var(--light-color);
-    margin-bottom: 8px;
-}
-
-.ad-sub-text {
-    font-size: 1rem;
-    color: var(--light-color);
-}
-
-.ad-card-right {
-    flex: 1 1 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ad-image-crop {
-    width: 100%;
-    height: 250px;
-    /*Show only top half (adjust as needed)*/
-    overflow: hidden;
-    border-radius: 0 0 var(--border-radius) 0;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-}
-
-.ad-image-crop img {
-    width: 100%;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-}
-
-
 /* CG Calculator Section */
 .calculator-container {
     background: white;
@@ -414,10 +353,6 @@ header {
         font-size: 1.6rem;
     }
 
-    .ad-main-text {
-        font-size: 1.8rem;
-    }
-
     .calculator-container {
         gap: 25px;
         padding: 25px;
@@ -478,22 +413,6 @@ header {
 
     .countdown-number {
         font-size: 2rem;
-    }
-
-    .ad-card {
-        min-height: 160px;
-    }
-
-    .ad-main-text {
-        font-size: 1.6rem;
-    }
-
-    .ad-sub-text {
-        font-size: 0.9rem;
-    }
-
-    .ad-image-crop {
-        height: 200px;
     }
 
     .calculator-container {
@@ -617,36 +536,6 @@ header {
         font-size: 0.7rem;
     }
 
-    /* Ad Card */
-    .ad-card {
-        flex-direction: row-reverse;
-        min-height: auto;
-        margin: 30px auto 0 auto;
-    }
-
-    .ad-card-left {
-        padding: 20px;
-        text-align: center;
-    }
-
-    .ad-main-text {
-        font-size: 1.4rem;
-        margin-bottom: 5px;
-    }
-
-    .ad-sub-text {
-        font-size: 0.85rem;
-    }
-
-    .ad-card-right {
-        order: -1;
-    }
-
-    .ad-image-crop {
-        height: 150px;
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
-    }
-
     /* Calculator */
     .calculator-container {
         padding: 20px;
@@ -694,20 +583,6 @@ header {
     .section-title {
         font-size: 1.4rem;
         margin-bottom: 25px;
-    }
-
-    /* Navigation */
-    .nav-container {
-        padding: 10px 12px;
-    }
-
-    .nav-logo a {
-        font-size: 1.2rem;
-    }
-
-    .hamburger .bar {
-        width: 22px;
-        height: 2px;
     }
 
     /* Header */
@@ -801,28 +676,6 @@ header {
         font-size: 0.6rem;
     }
 
-    /* Ad Card */
-    .ad-card {
-        margin: 20px auto 0 auto;
-    }
-
-    .ad-card-left {
-        padding: 15px;
-    }
-
-    .ad-main-text {
-        font-size: 1.2rem;
-        margin-bottom: 4px;
-    }
-
-    .ad-sub-text {
-        font-size: 0.8rem;
-    }
-
-    .ad-image-crop {
-        height: 120px;
-    }
-
     /* Calculator */
     .calculator-container {
         padding: 15px;
@@ -869,6 +722,7 @@ header {
     }
 
     .btn {
+        margin-top: 10px;
         padding: 8px 16px;
         font-size: 0.9rem;
     }
