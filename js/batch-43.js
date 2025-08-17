@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleSemesterClick(semester) {
         switch(semester) {
             case '1st':
-                window.location.href = 'batch-45-1st-semester.html';
+                window.location.href = 'batch-43-1st-semester.html';
                 break;
             case '2nd':
             case '3rd':
