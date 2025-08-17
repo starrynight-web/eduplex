@@ -419,7 +419,43 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
 
         const totalCgpa = weightedSum / TOTAL_CREDIT_POINTS;
         resultEl.textContent = totalCgpa.toFixed(2);
-        messageEl.textContent = 'Marks converted to CGPA, then weighted by credits over 13 total points.';
+        // Get the letter grade based on CGPA
+        let gradeLabel = '';
+        let motivationalMessage = '';
+
+        if (totalCgpa === 4.00) {
+            gradeLabel = 'A+';
+            motivationalMessage = 'Outstanding achievement! Keep up the excellent work!';
+        } else if (totalCgpa >= 3.75) {
+            gradeLabel = 'A';
+            motivationalMessage = 'Excellent performance! You\'re doing great!';
+        } else if (totalCgpa >= 3.50) {
+            gradeLabel = 'A-';
+            motivationalMessage = 'Very good work! Keep pushing forward!';
+        } else if (totalCgpa >= 3.25) {
+            gradeLabel = 'B+';
+            motivationalMessage = 'Good job! You\'re on the right track!';
+        } else if (totalCgpa >= 3.00) {
+            gradeLabel = 'B';
+            motivationalMessage = 'Solid performance! Keep improving!';
+        } else if (totalCgpa >= 2.75) {
+            gradeLabel = 'B-';
+            motivationalMessage = 'You can do better! Keep working hard!';
+        } else if (totalCgpa >= 2.50) {
+            gradeLabel = 'C+';
+            motivationalMessage = 'There\'s room for improvement. Don\'t give up!';
+        } else if (totalCgpa >= 2.25) {
+            gradeLabel = 'C';
+            motivationalMessage = 'Study harder and you\'ll see better results!';
+        } else if (totalCgpa >= 2.00) {
+            gradeLabel = 'D';
+            motivationalMessage = 'More effort needed. You can do this!';
+        } else {
+            gradeLabel = 'F';
+            motivationalMessage = 'Don\'t be discouraged. Better luck next time!';
+        }
+
+        messageEl.textContent = `Your semester grade is ${gradeLabel}. ${motivationalMessage}`;
     }
     // Refresh all subject inputs
     function refreshSubjectInputs() {
