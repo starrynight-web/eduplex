@@ -104,13 +104,19 @@ body {
 
 /* Archive Content */
 .archive-content {
-    display: none;
-    margin-top: 20px;
+  max-height: 0;      
+  opacity: 0;           
+  overflow: hidden;     
+  margin-top: 0;
+  transition: all 0.7s ease; 
 }
 
 .archive-content.active {
-    display: block;
+  max-height: 500px;    
+  opacity: 1;
+  margin-top: 20px;
 }
+
 
 /* Exam Type */
 .exam-type {
@@ -151,18 +157,96 @@ body {
 }
 
 .pdf-link {
-    display: inline-block;
-    margin: 5px 0 10px;
-    color: var(--danger-color);
-    font-weight: 500;
-    transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 8px; 
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 12px 20px;
+  color: white;
+  background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em rgba(59, 48, 78, 0.527);
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.6s;
+  text-decoration: none; 
+  text-align: center;
+}
+
+.pdf-link svg { 
+  width: 22px;
+  height: 22px;
 }
 
 .pdf-link:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
+  box-shadow: 0 0.5em 1.5em -0.5em #3b82f6;
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  color: rgb(255, 162, 162);
 }
 
+.pdf-link:active {
+  box-shadow: 0 0.3em 1em -0.5em #3b82f6;
+}
+
+.pdf-link::before {
+  content: "";
+  width: 4px;
+  height: 40%;
+  background-color: white;
+  position: absolute;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  left: 0;
+  transition: all 0.6s;
+}
+
+.pdf-link::after {
+  content: "";
+  width: 4px;
+  height: 40%;
+  background-color: white;
+  position: absolute;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  right: 0;
+  transition: all 0.6s;
+}
+
+.pdf-link:hover::before,
+.pdf-link:hover::after {
+  height: 60%;
+}
+
+.pdf-link:hover::before {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  transform: translate(5px, -15px) rotate(45deg);
+}
+
+.pdf-link:hover::after {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  transform: translate(-5px, 15px) rotate(45deg);
+}
+
+
+
+@media (max-width: 768px) {
+    .pdf-link { padding: 16px 0; border-radius: 8px; }
+}
+@media (max-width: 480px) {
+    .pdf-link { padding: 12px 0; }
+}
 .questions-list {
     padding-left: 20px;
     margin-top: 10px;
