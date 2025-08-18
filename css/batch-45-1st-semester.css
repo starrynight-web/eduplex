@@ -102,20 +102,21 @@ body {
     justify-content: center;
 }
 
-/* Archive Content */
 .archive-content {
-  max-height: 0;      
-  opacity: 0;           
-  overflow: hidden;     
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
   margin-top: 0;
-  transition: all 0.7s ease; 
+  transition: max-height 0.7s ease, opacity 0.7s ease, margin-top 0.7s ease;
 }
 
 .archive-content.active {
-  max-height: 500px;    
+  max-height: 9999px; 
   opacity: 1;
   margin-top: 20px;
 }
+
+
 
 
 /* Exam Type */
@@ -238,6 +239,7 @@ body {
   border-bottom-left-radius: 0px;
   transform: translate(-5px, 15px) rotate(45deg);
 }
+
 
 
 
