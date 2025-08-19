@@ -10,6 +10,111 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
+<style>
+
+/* ------------------------- Responsive ------------------------- */
+@media (max-width: 1024px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-left, .hero-right {
+    min-width: 100%;
+  }
+
+  .hero-left h1.logo {
+    font-size: 2.2rem;
+  }
+
+  .hero-left .tagline {
+    font-size: 1.1rem;
+  }
+
+  .hero-left .welcome-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-icons {
+    display: none;
+  }
+
+  .calculator-container {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-result {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .welcome-text {
+    font-size: 0.95rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+
+  .footer-bottom h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 10px;
+  }
+
+  .hero-left h1.logo {
+    font-size: 1.8rem;
+  }
+
+  .hero-left .tagline {
+    font-size: 1rem;
+  }
+
+  .hero-left .welcome-text {
+    font-size: 0.9rem;
+  }
+
+  .calculator-result {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .welcome-text {
+    font-size: 0.85rem;
+  }
+}
+
+
+</style>
+
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar">
