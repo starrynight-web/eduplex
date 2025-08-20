@@ -6,114 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - EduPlex</title>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/info-pages.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
-<style>
-
-/* ------------------------- Responsive ------------------------- */
-@media (max-width: 1024px) {
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
-
-  .hero-left, .hero-right {
-    min-width: 100%;
-  }
-
-  .hero-left h1.logo {
-    font-size: 2.2rem;
-  }
-
-  .hero-left .tagline {
-    font-size: 1.1rem;
-  }
-
-  .hero-left .welcome-text {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-icons {
-    display: none;
-  }
-
-  .calculator-container {
-    grid-template-columns: 1fr;
-  }
-
-  .calculator-result {
-    margin: 0 auto;
-    max-width: 90%;
-  }
-
-  section {
-    padding: 40px 15px;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .welcome-text {
-    font-size: 0.95rem;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-
-  .footer-section {
-    min-width: 100%;
-  }
-
-  .footer-bottom h3 {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-content {
-    padding: 0 10px;
-  }
-
-  .hero-left h1.logo {
-    font-size: 1.8rem;
-  }
-
-  .hero-left .tagline {
-    font-size: 1rem;
-  }
-
-  .hero-left .welcome-text {
-    font-size: 0.9rem;
-  }
-
-  .calculator-result {
-    padding: 15px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .welcome-text {
-    font-size: 0.85rem;
-  }
-}
-
-
-</style>
 
 <body>
   <!-- Navigation Bar -->
@@ -179,104 +74,120 @@
 </div>
 
 
-
-  
-  <!-- About Us Header -->
-  <header>
-    <div class="header-bg"></div>
-    <div class="container header-content">
-      <div class="hero-left">
-        <h1 class="logo">About EduPlex</h1>
-        <p class="tagline">Our Journey, Our Mission.</p>
-        <p class="welcome-text">
-          EduPlex is a student-driven initiative built by and for the Software Engineering 45th batch of 
-          Daffodil International University. Our mission is to simplify learning through structured 
-          resources, previous year questions, and powerful academic tools like CGPA calculators.
-        </p>
-      </div>
-
-      <div class="hero-right">
-                <div class="countdown-container">
-                    <h3 class="countdown-title">Our Next Goal</h3>
-                    <p class="countdown-subtitle">Prepare like a Pro. Your exam begins in...</p>
-                    
-                    </div>
-                </div>
-      
-    </div>
-  </header>
-
-  <!-- About Section -->
-  <section>
+  <!-- Main Content (matches changelog/suggestion layout) -->
+  <main class="main-content">
     <div class="container">
-      <h2 class="section-title">Who We Are</h2>
-     <center> <p class="welcome-text"></center>
-        We are a group of passionate learners and aspiring software engineers who wanted to 
-        create a one-stop digital space for students. From study materials to exam routines 
-        and tools for GPA calculation — EduPlex is built to empower every learner.
-      </p>
+      <section class="subjects-section">
+        <h1 class="section-title">About EduPlex</h1>
 
-      <h2 class="section-title">Our Vision</h2>
-     <center> <p class="welcome-text"></center>
-        To create a sustainable, collaborative, and technology-enhanced learning ecosystem 
-        where students can focus on mastering their subjects instead of wasting time searching 
-        for scattered resources.
-      </p>
-
-      <h2 class="section-title">Our Team</h2>
-      <div class="calculator-container" style="grid-template-columns: 1fr 1fr 1fr;">
-        <div class="calculator-result">
-          <h3 class="result-title">Team UNLEFT</h3>
-          <center><p>Developer Company</p> </center>
-        </div>
-        <div class="calculator-result">
-          <h3 class="result-title">Team EduPlex</h3>
-         <center> <p>Contributors, Designers & Content Writers</p></center>
-        </div>
-        <div class="calculator-result">
-          <h3 class="result-title">Batch 45</h3>
-         <center> <p>Support & Inspiration</p></center>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="footer-container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo-row">
-            <img src="images/eduplex logo short.png" alt="Logo" loading="lazy" />
-            <h3>EduPlex</h3>
+        <div class="subjects-grid">
+          <div class="subject-archive-container">
+            <div class="subject-header">
+              <h3 class="subject-title">Who We Are</h3>
+            </div>
+            <div class="archive-content active">
+              <div class="class-item">
+                <p>
+                  EduPlex is a student‑driven initiative built by and for the Software Engineering 45th batch of
+                  Daffodil International University. Our mission is to simplify learning through structured resources,
+                  previous year questions, and helpful academic tools.
+                </p>
+              </div>
+            </div>
           </div>
-          <p>EduPlex is your comprehensive learning platform designed specifically for the 45th batch of
-            Software Engineering students of Daffodil International University.</p>
+
+          <div class="subject-archive-container">
+            <div class="subject-header">
+              <h3 class="subject-title">Our Vision</h3>
+            </div>
+            <div class="archive-content active">
+              <div class="class-item">
+                <p>
+                  To create a sustainable, collaborative, technology‑enhanced learning ecosystem where students can
+                  focus on mastering their subjects instead of searching for scattered resources.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subject-archive-container">
+            <div class="subject-header">
+              <h3 class="subject-title">Our Team</h3>
+            </div>
+            <div class="archive-content active">
+              <div class="class-item">
+                <h4 class="class-name">Team UNLEFT</h4>
+                <p>Developer Company</p>
+              </div>
+              <div class="class-item">
+                <h4 class="class-name">Team EduPlex</h4>
+                <p>Contributors, Designers & Content Writers</p>
+              </div>
+              <div class="class-item">
+                <h4 class="class-name">Batch 45</h4>
+                <p>Support & Inspiration</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="batch-45-1st-semester.html">Study Materials</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <h3>EduPlex</h3>
-        <p>All rights reserved.</p>
-        <p>&copy;2025 | A project of <a href="http://unleft.space/" target="_blank">UNLEFT</a></p>
+      </section>
+
+      <div class="back-button-container">
+        <a href="index.html" class="btn back-btn">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
       </div>
     </div>
+  </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <div class="footer-logo-row">
+                      <img src="images/eduplex logo short.png" alt="Logo" loading="lazy" />
+                      <h3>EduPlex</h3>
+                  </div>
+                  <p>EduPlex is your comprehensive learning platform designed specifically for the 45th batch of
+                      Software Engineering students of Daffodil International University.
+                      Access course materials, previous papers, and useful tools to excel in your academic journey.
+                  </p>
+              </div>
+
+              <div class="footer-section">
+                  <h3>Quick Links</h3>
+                  <ul>
+                      <li>
+                          <h4>Study Materials:</h4>
+                      </li>
+                      <li><a href="batch-45-1st-semester.html">Batch - 45</a></li>
+                      <li>
+                          <h4>Questions & answers of previous year exams:</h4>
+                      </li>
+                      <li><a href="batch-43-1st-semester.html">Batch-43</a></li>
+                      <li><a href="batch-44-1st-semester.html">Batch-44</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-section">
+                  <h3>Support</h3>
+                  <ul>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="footer-bottom">
+              <h3>Eduplex</h3>
+              <p>All rights reserved.</p>
+              <p>&copy;2025 | A project of <a href="http://unleft.space/" target="_blank">UNLEFT</a></p>
+          </div>
+      </div>
   </footer>
 
+  <script src="js/info-pages.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

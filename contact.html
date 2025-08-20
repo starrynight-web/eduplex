@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - EduPlex</title>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/info-pages.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -73,174 +73,121 @@
     </div>
 </div>
 
-  <!-- Contact Header -->
-  <header>
-    <div class="header-bg"></div>
-    <div class="container header-content">
-    <div class="hero-left">
-       <center><h1 class="logo">Contact Us</h1>
-        <p class="tagline">We’re here to listen and help.</p>
-        <p class="welcome-text">
-          Have questions, feedback, or suggestions? <br>
-          Feel free to reach out to us anytime — your thoughts mean a lot!
-        </p>
-</center>
-      </div> 
-        <div class="hero-right">
-                <div class="countdown-container">
-                    <h3 class="countdown-title">Go Ahead</h3>
-                    <p class="countdown-subtitle">Prepare like a Pro. Your exam soon</p>
-                    
-                    </div>
-                </div>
-
-                
-      
-    </div>
-    </div>
-
-    
-   
-  </header>
-
-  <!-- Contact Form Section -->
-  <section>
+  <!-- Main Content (matches changelog/suggestion layout) -->
+  <main class="main-content">
     <div class="container">
-      <h2 class="section-title">Get in Touch</h2>
-      <form class="calculator-container" style="flex-direction: column; gap: 20px; max-width: 600px; margin: auto;">
-        
-        <div class="calculator-result" style="padding: 20px;">
-          <label for="name"><strong>Name</strong></label>
-          <input type="text" id="name" placeholder="Enter your name" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-top:8px;">
-        </div>
+      <section class="subjects-section">
+        <h1 class="section-title">Contact Us</h1>
 
-        <div class="calculator-result" style="padding: 20px;">
-          <label for="email"><strong>Email</strong></label>
-          <input type="email" id="email" placeholder="Enter your email" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-top:8px;">
-        </div>
-
-        <div class="calculator-result" style="padding: 20px;">
-          <label for="message"><strong>Message</strong></label>
-          <textarea id="message" rows="5" placeholder="Write your message..." required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-top:8px;"></textarea>
-        </div>
-
-       <button type="submit" class="contact-btn">
-  Send Message
-</button>
-
-<style>
-:root {
-  --accent-color: #435fee;
-  --danger-color: #ff5e5e;
-  --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.contact-btn {
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;       /* responsive compact padding */
-  border-radius: 10px;
-  font-size: 1rem;           /* scalable font */
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: var(--box-shadow);
-  transition: all 0.3s ease-in-out;
-  display: inline-block;
-  width: 100%;
-  max-width: 220px;          /* compact width */
-  text-align: center;
-}
-
-.contact-btn:hover {
-  transform: scale(1.05) translateY(-2px);
-  background: var(--danger-color);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-.contact-btn:active {
-  transform: scale(0.97);
-}
-
-@media (max-width: 500px) {
-  .contact-btn {
-    font-size: 0.9rem;
-    padding: 10px 18px;
-    border-radius: 8px;
-    max-width: 180px;
-  }
-}
-</style>
-
-      </form>
-      
-    </div>
-  </section>
-
-  <!-- Contact Info Section -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Other Ways to Connect</h2>
-      <div class="calculator-container" style="grid-template-columns: repeat(3,1fr);">
-        
-        <div class="calculator-result">
-          <center><i class="fas fa-envelope fa-2x"></i></center>
-          <h3 class="result-title">Email</h3>
-          <center><p>skywatcher181@gmail.com</p></center>
-        </div>
-
-        <div class="calculator-result">
-          <center><i class="fas fa-phone fa-2x"></i></center>
-          <h3 class="result-title">Phone</h3>
-          <center><p>+880 1511-961401</p></center>
-        </div>
-
-        <div class="calculator-result">
-         <center> <i class="fas fa-map-marker-alt fa-2x"></i></center>
-          <h3 class="result-title">Location</h3>
-        <center>  <p>Daffodil International University, Dhaka</p></center>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="footer-container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo-row">
-            <img src="images/eduplex logo short.png" alt="Logo" loading="lazy" />
-            <h3>EduPlex</h3>
+        <div class="subjects-grid">
+          <div class="subject-archive-container">
+            <div class="subject-header">
+              <h3 class="subject-title">Get in Touch</h3>
+            </div>
+            <div class="archive-content active">
+              <div class="class-item">
+                <form class="calculator-container" style="flex-direction: column; gap: 20px; max-width: 600px; margin: auto;">
+                  <div class="calculator-result" style="padding: 20px;">
+                    <label for="name"><strong>Name</strong></label>
+                    <input type="text" id="name" placeholder="Enter your name" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-top:8px;">
+                  </div>
+                  <div class="calculator-result" style="padding: 20px;">
+                    <label for="email"><strong>Email</strong></label>
+                    <input type="email" id="email" placeholder="Enter your email" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-top:8px;">
+                  </div>
+                  <div class="calculator-result" style="padding: 20px;">
+                    <label for="message"><strong>Message</strong></label>
+                    <textarea id="message" rows="5" placeholder="Write your message..." required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-top:8px;"></textarea>
+                  </div>
+                  <button type="submit" class="btn" style="max-width:220px; align-self:center;">Send Message</button>
+                </form>
+              </div>
+            </div>
           </div>
-          <p>EduPlex is your comprehensive learning platform designed specifically for the 45th batch of
-            Software Engineering students of Daffodil International University.</p>
+
+          <div class="subject-archive-container">
+            <div class="subject-header">
+              <h3 class="subject-title">Other Ways to Connect</h3>
+            </div>
+            <div class="archive-content active">
+              <div class="calculator-container">
+                <div class="calculator-result">
+                  <i class="fas fa-envelope fa-2x contact-icon"></i>
+                  <h3 class="result-title">Email</h3>
+                  <p class="contact-value">eduplex45h@gmail.com</p>
+                </div>
+                <div class="calculator-result">
+                  <i class="fas fa-phone fa-2x contact-icon"></i>
+                  <h3 class="result-title">Phone</h3>
+                  <p class="contact-value">+880 1511-961401</p>
+                </div>
+                <div class="calculator-result">
+                  <i class="fas fa-map-marker-alt fa-2x contact-icon"></i>
+                  <h3 class="result-title">Location</h3>
+                  <p class="contact-value">Daffodil International University, Dhaka</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="batch-45-1st-semester.html">Study Materials</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <h3>EduPlex</h3>
-        <p>All rights reserved.</p>
-        <p>&copy;2025 | A project of <a href="http://unleft.space/" target="_blank">UNLEFT</a></p>
+      </section>
+
+      <div class="back-button-container">
+        <a href="index.html" class="btn back-btn">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
       </div>
     </div>
+  </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <div class="footer-logo-row">
+                      <img src="images/eduplex logo short.png" alt="Logo" loading="lazy" />
+                      <h3>EduPlex</h3>
+                  </div>
+                  <p>EduPlex is your comprehensive learning platform designed specifically for the 45th batch of
+                      Software Engineering students of Daffodil International University.
+                      Access course materials, previous papers, and useful tools to excel in your academic journey.
+                  </p>
+              </div>
+
+              <div class="footer-section">
+                  <h3>Quick Links</h3>
+                  <ul>
+                      <li>
+                          <h4>Study Materials:</h4>
+                      </li>
+                      <li><a href="batch-45-1st-semester.html">Batch - 45</a></li>
+                      <li>
+                          <h4>Questions & answers of previous year exams:</h4>
+                      </li>
+                      <li><a href="batch-43-1st-semester.html">Batch-43</a></li>
+                      <li><a href="batch-44-1st-semester.html">Batch-44</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-section">
+                  <h3>Support</h3>
+                  <ul>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="footer-bottom">
+              <h3>Eduplex</h3>
+              <p>All rights reserved.</p>
+              <p>&copy;2025 | A project of <a href="http://unleft.space/" target="_blank">UNLEFT</a></p>
+          </div>
+      </div>
   </footer>
 
+  <script src="js/info-pages.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
