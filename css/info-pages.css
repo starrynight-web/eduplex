@@ -17,7 +17,7 @@
 .class-name { font-weight: 600; margin-bottom: 6px; color: var(--secondary-color); }
 
 /* Contact info block */
-.archive-content .calculator-container { background: transparent; box-shadow: none; padding: 0; display: grid; gap: 24px; align-items: start; }
+.archive-content .calculator-container { background: transparent; box-shadow: none; padding: 0; gap: 24px; align-items: start; }
 .archive-content .calculator-result { background: transparent; box-shadow: none; padding: 14px 20px; display: flex; align-items: center; justify-content: flex-start; gap: 14px; }
 .archive-content .contact-icon { color: var(--secondary-color); flex-shrink: 0; }
 .archive-content .result-title { margin: 0; }
