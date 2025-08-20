@@ -194,8 +194,104 @@ function getNextGrade(marks) {
 function cgpaToPercentage(cgpa) {
     return 20 * cgpa;
 }
+// =======================
+// 📘 Semester CGPA Calculator Initialization
+(function initSemesterCgpaCalculator() {
+    const form = document.getElementById('semester-form');
+    if (!form) return;
 
+    const calcBtn = document.getElementById('calculate-semester-btn');
+    const resultEl = document.getElementById('semester-cgpa-value');
+    const gradeEl = document.getElementById('semester-grade');
+    const messageEl = document.getElementById('semester-message');
+    const totalCreditsEl = document.getElementById('semester-total-credits');
 
+    const SUBJECTS = [
+        { code: 'BNS', name: 'Bangladesh Studies (BNS)', credit: 3 },
+        { code: 'CF',  name: 'Computer Fundamentals (CF)', credit: 3 },
+        { code: 'CFL', name: 'Computer Fundamentals Lab (CFL)', credit: 1 },
+        { code: 'ISE', name: 'Introduction To Software Engineering (ISE)', credit: 3 },
+        { code: 'E1',  name: 'English - 1 (E-1)', credit: 3 },
+    ];
+
+    const TOTAL_CREDIT_POINTS = SUBJECTS.reduce((sum, s) => sum + s.credit, 0);
+    totalCreditsEl.textContent = TOTAL_CREDIT_POINTS.toString();
+
+    // 🔁 Precise CGPA Functions
+    function getCGPA(marks) {
+        if (marks >= 80) return 4.00;
+        if (marks < 40) return 0.00;
+        let steps = Math.floor((80 - marks) / 0.5);
+        let cgpa = 4.00 - (steps * 0.025);
+        return parseFloat(cgpa.toFixed(2));
+    }
+
+    function getGrade(cgpa) {
+        if (cgpa === 4.00) return 'A+';
+        if (cgpa >= 3.75) return 'A';
+        if (cgpa >= 3.50) return 'A-';
+        if (cgpa >= 3.25) return 'B+';
+        if (cgpa >= 3.00) return 'B';
+        if (cgpa >= 2.75) return 'B-';
+        if (cgpa >= 2.50) return 'C+';
+        if (cgpa >= 2.25) return 'C';
+        if (cgpa >= 2.00) return 'D';
+        return 'F';
+    }
+
+    function getGradeAndCgpa(marks) {
+        const cgpa = getCGPA(marks);
+        const grade = getGrade(cgpa);
+        return { grade, cgpa: cgpa.toFixed(2) };
+    }
+
+    // 🧮 Calculate Semester CGPA
+    calcBtn.addEventListener('click', () => {
+        let totalWeightedCgpa = 0;
+        let totalCredits = 0;
+        let validSubjectCount = 0;
+
+        SUBJECTS.forEach(subject => {
+            const inputEl = document.getElementById(`${subject.code.toLowerCase()}-marks`);
+            const errorEl = document.getElementById(`${subject.code.toLowerCase()}-error`);
+            const raw = parseFloat(inputEl?.value);
+
+            // Reset error
+            errorEl.textContent = '';
+            errorEl.style.display = 'none';
+            inputEl.style.borderColor = '#ddd';
+
+            if (isNaN(raw) || raw < 0 || raw > 100) {
+                errorEl.textContent = `Enter valid marks for ${subject.name} (0–100)`;
+                errorEl.style.display = 'block';
+                inputEl.style.borderColor = 'red';
+                return;
+            }
+
+            const { cgpa } = getGradeAndCgpa(raw);
+            totalWeightedCgpa += parseFloat(cgpa) * subject.credit;
+            totalCredits += subject.credit;
+            validSubjectCount++;
+        });
+
+        if (validSubjectCount === 0) {
+            resultEl.textContent = '--';
+            gradeEl.textContent = '--';
+            messageEl.textContent = 'Please enter valid marks for at least one subject.';
+            return;
+        }
+
+        const semesterCgpa = (totalWeightedCgpa / totalCredits).toFixed(2);
+        resultEl.textContent = semesterCgpa;
+
+        const semesterGrade = getGrade(parseFloat(semesterCgpa));
+        gradeEl.textContent = semesterGrade;
+
+        messageEl.textContent = `Your semester CGPA is ${semesterCgpa} (${semesterGrade}). Keep pushing forward!`;
+    });
+})();
+
+/*
 // =======================
 // 📘 Semester CGPA Calculator Initialization
 (function initSemesterCgpaCalculator() {
@@ -335,7 +431,7 @@ function updateAddButtonState() {
         ? `Limit reached (${MAX_ROWS})`
         : 'Add another subject';
 }
-
+*/
 // 🎓 Get credit value by subject code
 function getSubjectCreditByCode(code) {
     const subject = SUBJECTS.find(s => s.code === code);
