@@ -123,14 +123,15 @@ header {
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.373);
     transition: all 0.5s ease;
-    border: 1;
-    border-color: #ffffff6e;
+    border: 1px solid #ffffff6e;
     cursor: pointer;
+    display: inline-block;
   }
 
   .suggestion-btn:hover {
     transform: scale(1.08);
     box-shadow: 0 8px 22px rgb(101, 101, 225);
+    color: var(--light-color);
   }
 
 /* Exam Routine Dropdown */
