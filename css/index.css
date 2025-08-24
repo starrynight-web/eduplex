@@ -59,6 +59,9 @@ header {
 
 .batch-dropdown {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .batch-dropdown label {
@@ -101,6 +104,34 @@ header {
     border-color: rgba(255, 255, 255, 0.5);
     background: rgba(255, 255, 255, 0.15);
 }
+
+.suggestion-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0s;
+  }
+
+  .suggestion-btn {
+    background: linear-gradient(93deg, #6411ff, #4facfe5a,#9668eb57, #6411ff26);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.373);
+    transition: all 0.5s ease;
+    border: 1;
+    border-color: #ffffff6e;
+    cursor: pointer;
+  }
+
+  .suggestion-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 22px rgb(101, 101, 225);
+  }
 
 /* Exam Routine Dropdown */
 .exam-routine-dropdown {
@@ -485,6 +516,7 @@ header {
 
     .batch-dropdown {
         margin-bottom: 15px;
+        align-items: center;
     }
 
     .batch-select {
