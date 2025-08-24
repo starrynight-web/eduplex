@@ -188,7 +188,7 @@
                                             </ol>
                                         </li>
                                     </ul>
-                                    <a href="/pdf/bns_sug.pdf" download class="pdf-link">Download PDF Notes</a>
+                                    <a href="/pdf/bns_sug.pdf" download id="downloadBtn" class="pdf-link">Download PDF Notes</a>‎<span id="downloadStatus" style="margin-left:10px;"></span>
                                 </div>
                             </div>
                         </div>
@@ -276,6 +276,17 @@
             </div>
         </div>
     </footer>
+    ‎<script>
+‎const btn = document.getElementById("downloadBtn");
+‎const status = document.getElementById("downloadStatus");
+‎
+‎btn.addEventListener("click", () => {
+‎  status.textContent = "Downloading...";
+‎  // Clear after 3 seconds
+‎  setTimeout(() => status.textContent = "", 3000);
+‎});
+‎</script>
     <script src="js/batch-45-1st-semester.js"></script>
     <script src="js/main.js"></script>
 </body>
+</html>
