@@ -291,7 +291,7 @@ function cgpaToPercentage(cgpa) {
     });
 })();
 
-/*
+
 // =======================
 // 📘 Semester CGPA Calculator Initialization
 (function initSemesterCgpaCalculator() {
@@ -431,7 +431,7 @@ function updateAddButtonState() {
         ? `Limit reached (${MAX_ROWS})`
         : 'Add another subject';
 }
-*/
+
 // 🎓 Get credit value by subject code
 function getSubjectCreditByCode(code) {
     const subject = SUBJECTS.find(s => s.code === code);
