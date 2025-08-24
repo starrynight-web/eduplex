@@ -161,7 +161,88 @@
                             <div class="countdown-label">Seconds</div>
                         </div>
                     </div>
+                    <section class="suggestion-area">
+  <button class="suggestion-btn" onclick="toggleSelect()">💡 Suggestions</button>
+  <div id="batchSelect" style="display:none; margin-top:20px;">
+    <select id="batch" onchange="goToSuggestion()" onblur="hideSelect()">
+      <option value=""> Select Batch </option>
+      <option value="45">Batch-45</option>      
+    </select>
+  </div>
+</section>
+
+<style>
+  .suggestion-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+  }
+
+  .suggestion-btn {
+    background: linear-gradient(93deg, #6411ff, #4facfe5a,#9668eb57, #6411ff26);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.373);
+    transition: all 0.5s ease;
+    border: 1;
+    border-color: #ffffff6e;
+    cursor: pointer;
+  }
+
+  .suggestion-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 22px rgb(101, 101, 225);
+  }
+
+  /* Transparent background for select section */
+  #batchSelect {
+    background: rgba(0, 0, 0, 0); /* fully transparent */
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  select {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+    background: rgba(255, 253, 253, 0.408); /* semi-transparent dropdown */
+    backdrop-filter: blur(6px); /* glass effect */
+  }
+</style>
+
+<script>
+  function toggleSelect() {
+    let selectBox = document.getElementById("batchSelect");
+    selectBox.style.display = "block";
+    document.getElementById("batch").focus();
+  }
+
+  function hideSelect() {
+    let batch = document.getElementById("batch").value;
+    if(batch === "") {
+      document.getElementById("batchSelect").style.display = "none";
+    }
+  }
+
+  function goToSuggestion() {
+    let batch = document.getElementById("batch").value;
+    if(batch === "45"){
+      window.location.href = "suggestion.html";
+    }
+  }
+</script>
+
+
                 </div>
+
+                
                 <div class="exam-routine-dropdown">
                     <label for="exam-routine-select">Check your exam routine</label>
                     <select id="exam-routine-select" class="exam-routine-select">
