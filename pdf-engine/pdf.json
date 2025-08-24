@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "message": "PDF Downloaded successfully",
+  "timestamp": "2025-08-24T14:23:45Z",
+  "data": {
+    "pdfId": "pdf_9876543210abcdef",
+    "fileName": "Eduplex_Report_Aug_2025.pdf",
+    "fileSize": "2.3MB",
+    "downloadUrl": "https://eduplex.unleft.space/pdfs/",
+    "pages": 12,
+    "generatedBy": "Eduplex PDF Engine v3.2",
+    "preview": {
+      "thumbnailUrl": "https://eduplex.unleft.space/pdf-engine/package.json/",
+      "pageCount": 12
+    },
+    "metadata": {
+      "author": "Eduplex Team",
+      "createdAt": "2025-08-24T14:23:45Z",
+      "lastModified": "2025-08-24T14:23:45Z",
+      "font": "Roboto",
+      "orientation": "portrait",
+      "pageSize": "A4"
+    }
+  }
+}
