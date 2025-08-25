@@ -57,30 +57,50 @@ document.getElementById('exam-routine-select').addEventListener('change', functi
 });
 
 // Countdown Timer
-function updateCountdown() {
-    const examDate = new Date('August 27, 2025 09:00:00').getTime();
-    const now = new Date().getTime();
-    const distance = examDate - now;
+const examSchedule = [
+  new Date('August 27, 2025 09:00:00').getTime(),
+  new Date('August 30, 2025 12:00:00').getTime()
+];
 
-    if (distance < 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        document.querySelector('.countdown-subtitle').textContent = 'The exam has already passed!';
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = days.toString().padStart(2, '0');
-    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+function getNextExam() {
+  const now = new Date().getTime();
+  // Find the first exam date greater than "now"
+  return examSchedule.find(date => date > now) || null;
 }
+
+function updateCountdown() {
+  const nextExam = getNextExam();
+
+  if (!nextExam) {
+    // If no more exams left
+    document.getElementById('days').textContent = '00';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('minutes').textContent = '00';
+    document.getElementById('seconds').textContent = '00';
+    document.querySelector('.countdown-subtitle').textContent = 'All exams are finished!';
+    return;
+  }
+
+  const now = new Date().getTime();
+  const distance = nextExam - now;
+
+  if (distance < 0) {
+    // Safety check
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById('days').textContent = days.toString().padStart(2, '0');
+  document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+  document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+  document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+  document.querySelector('.countdown-subtitle').textContent = 'Next exam countdown:';
+}
+
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
