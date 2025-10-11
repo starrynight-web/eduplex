@@ -12,7 +12,7 @@ Allow: /contact.html
 Allow: /batch-45-1st-semester.html
 Allow: /batch-43-1st-semester.html
 Allow: /batch-44-1st-semester.html
-Allow: /batch-45-1st-semester-q&a.html
+Allow: /batch-45-1st-semester-qa.html
 Allow: /suggestion.html
 
 # Allow static resources for SEO
