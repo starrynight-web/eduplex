@@ -1,0 +1,9 @@
+{
+  "name": "eduplex",
+  "version": "1.0.0",
+  "description": "Eduplex static site with PDF download",
+  "scripts": {
+    "build": "echo 'download pdf'",
+    "start": "echo 'build pdf'"
+  }
+}
